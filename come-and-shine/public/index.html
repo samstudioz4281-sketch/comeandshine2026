@@ -1,0 +1,2578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Salvation Army – ISET · COME & SHINE Season 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0e14;--surface:#13151e;--surface2:#1b1e2b;
+  --border:#272b3a;--border2:#343848;
+  --text:#f0eeea;--text2:#9a97a8;--text3:#5e5b6e;
+  --accent:#f0622a;--accent-d:#c44c1f;
+  --gold:#e8c84a;--green:#22c97a;--green-bg:rgba(34,201,122,.12);
+  --blue:#4a9ef0;--blue-bg:rgba(74,158,240,.1);
+  --red:#f05050;--red-bg:rgba(240,80,80,.1);
+  --r:12px;--r-sm:8px;--r-lg:18px;
+}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+/* ── HERO ── */
+.hero{padding:4rem 2rem 3rem;background:var(--surface);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero-g1{position:absolute;top:-80px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(240,98,42,.2) 0%,transparent 70%);pointer-events:none}
+.hero-g2{position:absolute;bottom:-80px;left:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(74,158,240,.14) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1040px;margin:0 auto;position:relative}
+.etag{display:inline-flex;align-items:center;gap:8px;background:rgba(240,98,42,.15);border:1px solid rgba(240,98,42,.3);color:var(--accent);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:1.25rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin-bottom:.75rem;max-width:620px}
+.hero h1 em{color:var(--accent);font-style:italic}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1.5rem;font-size:.85rem;color:var(--text2);margin-top:1rem}
+/* ── STATS ── */
+.stats-strip{background:var(--surface2);border-bottom:1px solid var(--border);padding:.9rem 2rem}
+.stats-inner{max-width:1040px;margin:0 auto;display:flex;gap:2.5rem;flex-wrap:wrap;align-items:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.5rem;line-height:1}
+.stat-l{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-top:2px;font-weight:500}
+.dv{width:1px;height:34px;background:var(--border);flex-shrink:0}
+/* ── LAYOUT ── */
+.main{max-width:1040px;margin:2.5rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 308px;gap:1.75rem;align-items:start}
+@media(max-width:760px){.main{grid-template-columns:1fr}}
+/* ── STEPPER ── */
+.stepper{display:flex;align-items:center;margin-bottom:2rem}
+.sg{display:flex;align-items:center}
+.sdot{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600;color:var(--text3);background:var(--surface2);flex-shrink:0;transition:all .35s}
+.slbl{font-size:.78rem;color:var(--text3);margin-left:8px;white-space:nowrap;transition:color .3s}
+.sline{flex:1;height:1px;background:var(--border);margin:0 10px;transition:background .4s}
+.sg.active .sdot{border-color:var(--accent);background:var(--accent);color:#fff}
+.sg.active .slbl{color:var(--text)}
+.sg.done .sdot{border-color:var(--green);background:var(--green);color:#fff}
+.sg.done .slbl{color:var(--green)}
+/* ── CARD ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+.ci{width:44px;height:44px;border-radius:10px;background:rgba(240,98,42,.12);border:1px solid rgba(240,98,42,.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem}
+.ct{font-family:'Playfair Display',serif;font-size:1.45rem;margin-bottom:.2rem}
+.cs{color:var(--text2);font-size:.87rem;margin-bottom:1.75rem}
+/* ── UPLOAD ── */
+.upzone{border:1.5px dashed var(--border2);border-radius:var(--r);padding:3rem 2rem;text-align:center;cursor:pointer;transition:all .3s;position:relative;background:var(--surface2)}
+.upzone:hover,.upzone.over{border-color:var(--accent);background:rgba(240,98,42,.04)}
+.upzone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.up-ico{font-size:3rem;display:block;margin-bottom:.75rem}
+.upzone h3{font-size:1rem;font-weight:600;margin-bottom:.3rem}
+.upzone p{font-size:.82rem;color:var(--text3)}
+.upzone strong{color:var(--accent)}
+#idImg{width:100%;border-radius:var(--r-sm);margin-top:1.25rem;border:1px solid var(--border);display:none;max-height:260px;object-fit:contain;background:#000}
+/* ── EXTRACT LOADER ── */
+.extload{display:none;text-align:center;padding:2.5rem 1rem}
+.ering{width:52px;height:52px;border:3px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .75s linear infinite;margin:0 auto 1rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+.edots{display:flex;justify-content:center;gap:6px;margin-top:1rem}
+.edot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:bpulse 1.2s ease-in-out infinite}
+.edot:nth-child(2){animation-delay:.2s}.edot:nth-child(3){animation-delay:.4s}
+@keyframes bpulse{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
+/* ── EXTRACTED BOX ── */
+.exbox{display:none;margin-top:1.5rem}
+.exgrid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.exf{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem}
+.exfl{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-weight:600;margin-bottom:.35rem}
+.exfv{font-size:1.05rem;font-weight:600}
+.badge-ok{display:inline-flex;align-items:center;gap:5px;background:var(--green-bg);border:1px solid rgba(34,201,122,.3);color:var(--green);font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:20px}
+.warn-box{background:rgba(232,200,74,.07);border:1px solid rgba(232,200,74,.25);border-radius:var(--r-sm);padding:.8rem 1rem;font-size:.82rem;color:var(--gold);margin-top:.75rem}
+/* ── CONFIRM ── */
+.cblock{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:1.25rem}
+.chead{padding:.7rem 1.25rem;border-bottom:1px solid var(--border);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text3)}
+.crow{display:flex;justify-content:space-between;align-items:center;padding:.65rem 1.25rem;border-bottom:1px solid var(--border)}
+.crow:last-child{border-bottom:none}
+.ck{font-size:.82rem;color:var(--text2)}.cv{font-size:.88rem;font-weight:600}
+/* ── CAT BADGE ── */
+.catbadge{display:inline-flex;align-items:center;gap:8px;padding:.55rem 1.25rem;border-radius:var(--r);font-weight:600;font-size:.88rem;border:1px solid;margin-bottom:.5rem}
+/* ── CAT PERKS ── */
+.perk-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:1rem 0 1.5rem}
+.pchip{display:flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.55rem .9rem;font-size:.8rem;color:var(--text2)}
+.pdot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+/* ── FORM ── */
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:480px){.frow{grid-template-columns:1fr}}
+.field{margin-bottom:1.1rem}
+label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.07em;color:var(--text3);margin-bottom:.4rem;text-transform:uppercase}
+input,select,textarea{width:100%;padding:.65rem 1rem;border:1.5px solid var(--border2);border-radius:var(--r-sm);font-family:'Outfit',sans-serif;font-size:.92rem;background:var(--surface2);color:var(--text);transition:border-color .2s,box-shadow .2s;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(240,98,42,.12)}
+input::placeholder,textarea::placeholder{color:var(--text3)}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235e5b6e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+select option{background:#1b1e2b}
+.check-grid{display:flex;flex-wrap:wrap;gap:.5rem}
+.ci2{display:flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.4rem .8rem;cursor:pointer;font-size:.82rem;color:var(--text2);transition:all .2s;user-select:none}
+.ci2 input{width:14px;height:14px;accent-color:var(--accent);cursor:pointer;flex-shrink:0}
+.ci2.chk{border-color:rgba(240,98,42,.45);background:rgba(240,98,42,.08);color:var(--text)}
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.7rem 1.75rem;border-radius:var(--r-sm);font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;border:none;transition:all .22s}
+.btn-p{background:var(--accent);color:#fff}.btn-p:hover:not(:disabled){background:var(--accent-d);transform:translateY(-1px)}
+.btn-g{background:transparent;color:var(--text2);border:1.5px solid var(--border2)}.btn-g:hover:not(:disabled){border-color:var(--text2);color:var(--text)}
+.btn-sm{padding:.45rem 1.1rem;font-size:.82rem}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important}
+/* ── ALERTS ── */
+.alert{border-radius:var(--r-sm);padding:.75rem 1rem;font-size:.84rem;margin-bottom:1rem;display:none;line-height:1.5}
+.aerr{background:var(--red-bg);border:1px solid rgba(240,80,80,.3);color:var(--red)}
+.ainfo{background:var(--blue-bg);border:1px solid rgba(74,158,240,.25);color:var(--blue)}
+.aok{background:var(--green-bg);border:1px solid rgba(34,201,122,.25);color:var(--green)}
+/* ── PANELS ── */
+.panel{display:none;animation:fadeUp .35s ease both}
+.panel.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* ── SIDEBAR ── */
+.sbar{display:flex;flex-direction:column;gap:1.25rem}
+.sb{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.sb-top{padding:1.25rem;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#1a0f2e,#0d1520);position:relative;overflow:hidden}
+.sb-top::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(240,98,42,.28) 0%,transparent 70%)}
+.sb-top h3{font-family:'Playfair Display',serif;font-size:1.05rem;position:relative}
+.sb-top p{font-size:.78rem;color:var(--text3);position:relative}
+.sb-body{padding:1.25rem}
+.srow{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.srow:last-child{border-bottom:none}
+.sk{font-size:.78rem;color:var(--text3)}.sv{font-size:.8rem;font-weight:600}
+.capbar{height:5px;background:var(--border2);border-radius:3px;overflow:hidden;margin:.75rem 0 .35rem}
+.capfill{height:100%;background:linear-gradient(90deg,var(--accent),#e85a20);border-radius:3px;width:83%;transition:width 1s ease}
+/* ── TICKET ── */
+.ticket{border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin:1.5rem auto;max-width:480px}
+.tk-top{background:linear-gradient(135deg,#1a0e2e,#0d1a2e);padding:1.5rem 1.75rem;position:relative;overflow:hidden;display:flex;align-items:center;gap:1.25rem}
+.tk-top::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(240,98,42,.35) 0%,transparent 70%)}
+.tk-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);flex-shrink:0;position:relative;z-index:1;display:none}
+.tk-photo.loaded{display:block}
+.tk-top-text{position:relative;z-index:1;text-align:left}
+.tk-name{font-family:'Playfair Display',serif;font-size:1.35rem;position:relative}
+.tk-ev{font-size:.78rem;color:rgba(255,255,255,.4);position:relative;margin-top:.2rem}
+.tk-div{height:1px;background:var(--border);position:relative}
+.tk-div::before,.tk-div::after{content:'';position:absolute;width:22px;height:22px;border-radius:50%;background:var(--bg);top:50%;transform:translateY(-50%)}
+.tk-div::before{left:-11px}.tk-div::after{right:-11px}
+.tk-body{padding:1.5rem 1.75rem;background:var(--surface)}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.tf{font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:.25rem}
+.tv{font-size:.88rem;font-weight:600}
+.tk-foot{background:var(--accent);padding:.8rem 1.75rem;display:flex;justify-content:space-between;align-items:center}
+.tk-foot span{color:#fff;font-weight:700;letter-spacing:.07em;font-size:.82rem}
+.tk-qr{display:flex;justify-content:center;padding:1rem;background:var(--surface2);border-top:1px solid var(--border)}
+/* ── SUCCESS ── */
+.suc-ico{width:72px;height:72px;border-radius:50%;background:var(--green-bg);border:1px solid rgba(34,201,122,.3);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1.25rem}
+/* ── PRINT ── */
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  html,body{background:#fff!important;color:#000!important}
+  body>*{display:none!important}
+  .main{display:block!important;padding:0!important;margin:0!important;grid-template-columns:1fr!important}
+  .sbar{display:none!important}
+  #p4{display:block!important;position:static!important;padding:0!important}
+  #p4 .card{border:none!important;padding:0!important;box-shadow:none!important;background:#fff!important;color:#000!important}
+  #p4 .suc-ico,#p4 h2,#p4 .alert,#p4 .btn,#p4 #saveJpgBtn{display:none!important}
+  #reg-capture-card{
+    display:block!important;
+    background:#fff!important;
+    color:#000!important;
+    border:2px solid #333!important;
+    border-radius:10px!important;
+    max-width:420px!important;
+    margin:0.5cm auto!important;
+    padding:1.5rem!important;
+    box-shadow:none!important;
+    page-break-inside:avoid!important;
+  }
+  #reg-capture-card,#reg-capture-card *{
+    background:#fff!important;
+    color:#000!important;
+    border-color:#ccc!important;
+  }
+  #reg-capture-card #tk-name-row{color:#1565c0!important}
+  #reg-capture-card #tk-dob{color:#2e7d32!important}
+  #reg-capture-card #tk-parent{color:#e65100!important}
+  #print-photo-wrap{display:flex!important}
+  #qr-code{display:inline-block!important}
+  #qr-code canvas,#qr-code img{background:#fff!important}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-g1"></div><div class="hero-g2"></div>
+  <div class="hero-inner">
+    <div class="etag">⚡ Registration Open · Aug 1–15, 2026</div>
+    <h1 style="font-size:clamp(1.1rem,3vw,1.6rem);line-height:1.3;margin-bottom:.4rem">The Salvation Army – ISET</h1>
+    <h1>COME &amp; SHINE <em style="color:var(--gold);font-style:italic">Season 4</em></h1>
+    <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(.9rem,2.2vw,1.15rem);font-weight:400;color:var(--text2);margin-top:.4rem">Territorial Competition for Children and Youth 2026</h2>
+
+  </div>
+</div>
+
+<!-- STATS -->
+
+<div class="main">
+<div>
+
+<!-- STEPPER -->
+<div class="stepper">
+  <div class="sg active" id="sg1"><div class="sdot" id="sd1">1</div><span class="slbl">Upload ID</span></div>
+  <div class="sline" id="sl1"></div>
+  <div class="sg" id="sg2"><div class="sdot" id="sd2">2</div><span class="slbl">Registration</span></div>
+  <div class="sline" id="sl2"></div>
+  <div class="sg" id="sg3"><div class="sdot" id="sd3">3</div><span class="slbl">Confirm</span></div>
+  <div class="sline" id="sl3"></div>
+  <div class="sg" id="sg4"><div class="sdot" id="sd4">✓</div><span class="slbl">Done</span></div>
+</div>
+
+<!-- ══ PANEL 1 — UPLOAD ID ══ -->
+<div class="panel active" id="p1">
+  <div class="card">
+    <div class="ci">🪪</div>
+    <div class="ct">Upload Your ID Card</div>
+    <div class="cs">Our AI scans your government-issued ID to extract your name and date of birth — no manual typing needed. Your category is then assigned automatically based on your age.</div>
+
+    <div id="e1" class="alert aerr"></div>
+    <div class="alert ainfo" style="display:block;margin-bottom:1.25rem">📎 Accepted: Aadhaar Card, Voter ID, Passport, Driving Licence &nbsp;·&nbsp; JPEG or PNG up to 10 MB</div>
+
+    <div class="upzone" id="uZone">
+      <input type="file" id="idFile" accept="image/*" onchange="handleFile(event)"/>
+      <span class="up-ico">📄</span>
+      <h3>Drop your ID card here</h3>
+      <p>or <strong>click to browse</strong> a photo from your device</p>
+    </div>
+
+    <img id="idImg" alt="ID preview"/>
+
+    <!-- Loading -->
+    <div class="extload" id="extLoad">
+      <div class="ering"></div>
+      <p style="font-weight:600;font-size:.95rem">Reading your ID card…</p>
+      <p style="font-size:.82rem;color:var(--text3);margin-top:.35rem">AI is scanning for name and date of birth</p>
+      <div class="edots"><div class="edot"></div><div class="edot"></div><div class="edot"></div></div>
+    </div>
+
+    <!-- Extracted -->
+    <div class="exbox" id="exBox">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+        <p style="font-weight:700;font-size:.92rem">Extracted Information</p>
+        <span class="badge-ok">✓ Scan Complete</span>
+      </div>
+      <div class="exgrid">
+        <div class="exf"><div class="exfl">Full Name</div><div class="exfv" id="exName">—</div></div>
+        <div class="exf"><div class="exfl">Date of Birth</div><div class="exfv" id="exDOB">—</div></div>
+        <div class="exf"><div class="exfl">Gender</div><div class="exfv" id="exGender">—</div></div>
+        <div class="exf"><div class="exfl">ID Type</div><div class="exfv" id="exType">—</div></div>
+        <div class="exf"><div class="exfl">ID Number</div><div class="exfv" id="exID">—</div></div>
+      </div>
+      <div class="warn-box">⚠ Please review carefully. Re-upload a clearer photo if anything looks wrong.</div>
+      <div style="display:flex;gap:.75rem;margin-top:1.25rem;flex-wrap:wrap">
+        <button class="btn btn-g btn-sm" onclick="resetUpload()">↩ Re-upload</button>
+        <button class="btn btn-p" onclick="goRegistrationDirect()">Continue to Registration →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PANEL 2 — CONFIRM DETAILS ══ -->
+<div class="panel" id="p2">
+  <div class="card">
+    <div class="ci">✅</div>
+    <div class="ct">Confirm Your Details</div>
+    <div class="cs">Verify the information extracted from your ID. We've determined your registration category based on your date of birth.</div>
+
+    <div id="e2" class="alert aerr"></div>
+
+    <div class="cblock">
+      <div class="chead">📋 Extracted from ID Card</div>
+      <div class="crow"><span class="ck">Full Name</span><span class="cv" id="c-name">—</span></div>
+      <div class="crow"><span class="ck">Date of Birth</span><span class="cv" id="c-dob">—</span></div>
+      <div class="crow"><span class="ck">Gender</span><span class="cv" id="c-gender">—</span></div>
+      <div class="crow"><span class="ck">Age <span style="font-size:.72rem;color:var(--text3);font-weight:400">(as on 29 Aug 2026)</span></span><span class="cv" id="c-age">—</span></div>
+      <div class="crow"><span class="ck">ID Type</span><span class="cv" id="c-type">—</span></div>
+      <div class="crow"><span class="ck">ID Number</span><span class="cv" id="c-id">—</span></div>
+    </div>
+
+    <div style="margin-bottom:1.5rem">
+      <p style="font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-weight:600;margin-bottom:.65rem">Auto-Assigned Category</p>
+      <div id="c-catBadge"></div>
+      <p id="c-catDesc" style="font-size:.83rem;color:var(--text2);margin-top:.5rem;line-height:1.55"></p>
+    </div>
+
+    <div class="alert aok" style="display:block;margin-bottom:1.25rem">🔒 Your ID data is encrypted and used only for identity verification — not stored after the event.</div>
+
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+      <button class="btn btn-g btn-sm" onclick="goPanel(1)">← Back</button>
+      <button class="btn btn-p" onclick="goRegistration()">Continue to Registration →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PANEL 3 — CATEGORY FORM ══ -->
+<div class="panel" id="p3">
+  <div class="card">
+    <div class="ci" id="p3Ico">📝</div>
+    <div class="ct" id="p3Title">Registration Form</div>
+    <div class="cs" id="p3Sub">Fill in your details to complete registration.</div>
+
+    <div id="e3" class="alert aerr"></div>
+    <div id="p3Badge"></div>
+    <div id="p3Perks" class="perk-grid"></div>
+
+    <!-- Read-only ID fields -->
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1.25rem;margin-bottom:1.25rem">
+      <p style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:.75rem">From ID Card <span style="color:var(--green);font-weight:400;text-transform:none;letter-spacing:0">(not editable)</span></p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem">
+        <div>
+          <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);font-weight:600;margin-bottom:.3rem">Full Name</div>
+          <div id="f-fn-display" style="font-size:.92rem;font-weight:600;color:var(--text)">—</div>
+          <input id="f-fn" type="hidden"/>
+        </div>
+        <div>
+          <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);font-weight:600;margin-bottom:.3rem">Gender</div>
+          <div id="f-gender-display" style="font-size:.92rem;font-weight:600;color:var(--text)">—</div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);font-weight:600;margin-bottom:.3rem">Date of Birth</div>
+          <div id="f-dob-display" style="font-size:.92rem;font-weight:600;color:var(--text)">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User inputs -->
+    <div class="field"><label>Parent's / Guardian's Name</label><input id="f-parent" type="text" placeholder="Full name of parent or guardian"/></div>
+    <div class="field"><label>Phone Number</label><input id="f-ph" type="tel" placeholder="98765 43210"/></div>
+
+    <!-- Division / District / Extension -->
+    <div class="field">
+      <label>Division / District / Extension</label>
+      <select id="divisionSelect" onchange="onDivisionChange(this.value)">
+        <option value="">Select Division / District / Extension…</option>
+        <option>MARTHANDAM - மார்த்தாண்டம்</option>
+        <option>THUCKALAY - தக்கலை</option>
+        <option>KULASEKARAM - குலசேகரம்</option>
+        <option>NAGERCOIL - நாகர்கோயில்</option>
+        <option>AZHAGIAPANDIAPURAM - அழகியபாண்டியபுரம்</option>
+        <option>KANYAKUMARI - கன்னியாகுமரி</option>
+        <option>INSTITUTION</option>
+        <option>ARALVAIMOZHI - ஆரல்வாய்மொழி</option>
+        <option>VALLIOOR - வள்ளியூர்</option>
+        <option>RATHAPURAM - இராதபுரம்</option>
+        <option>TENKASI - தென்காசி</option>
+        <option>PALAYAMKOTTAI - பாளையங்கோட்டை</option>
+        <option>TUTICORIN - தூத்துக்குடி</option>
+        <option>MADURAI - மதுரை</option>
+        <option>TRICHY - திருச்சி</option>
+        <option>COIMBATORE - கோயம்புத்தூர்</option>
+        <option>KATPADY - காட்பாடி</option>
+        <option>PONDICHERRY - பாண்டிச்சேரி</option>
+        <option>SALEM - சேலம்</option>
+        <option>NILGRIS - நீலகிரி</option>
+        <option>ERODE - ஈரோடு</option>
+        <option>TANJAVOOR - தஞ்சாவூர்</option>
+        <option>THIRUPPUR - திருப்பூர்</option>
+      </select>
+    </div>
+
+    <!-- Corps sub-dropdown (Marthandam / Thuckalay) -->
+    <div class="field" id="corpsField" style="display:none">
+      <label>Corps <span id="corpsFieldLabel" style="font-size:.7rem;color:var(--text3);font-weight:400"></span></label>
+      <select id="corpsSelect"><option value="">Select Corps…</option></select>
+    </div>
+
+    <!-- Dynamic category-specific fields -->
+    <div id="dynFields"></div>
+
+
+
+    <!-- Face Photo Upload -->
+    <div class="field" style="margin-top:.25rem">
+      <label>Face Photo <span style="font-size:.7rem;color:var(--red);font-weight:500">* Required</span></label>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.85rem 1rem;font-size:.8rem;color:var(--text3);margin-bottom:.6rem;display:flex;align-items:flex-start;gap:.5rem">
+        <span>📌</span>
+        <span>Clear face-only photo · Front-facing · Face fully visible · No full-body photos · JPEG or PNG · Max 5 MB</span>
+      </div>
+      <div id="photoUploadZone" style="border:1.5px dashed var(--border2);border-radius:var(--r);padding:1.5rem;text-align:center;cursor:pointer;background:var(--surface2);position:relative;transition:all .3s" onclick="document.getElementById('photoFile').click()">
+        <input type="file" id="photoFile" accept="image/*" style="display:none" onchange="handlePhotoUpload(event)"/>
+        <div id="photoPlaceholder">
+          <div style="font-size:2rem;margin-bottom:.4rem">🤳</div>
+          <p style="font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.2rem">Click to upload face photo</p>
+          <p style="font-size:.78rem;color:var(--text3)">Face only — no full-body photos</p>
+        </div>
+        <img id="photoPreview" style="display:none;max-height:160px;max-width:160px;border-radius:50%;border:3px solid var(--accent);object-fit:cover;margin:0 auto"/>
+      </div>
+      <div id="photoStatus" style="display:none;margin-top:.65rem;border-radius:var(--r-sm);padding:.7rem 1rem;font-size:.83rem;"></div>
+      <div id="photoValidating" style="display:none;margin-top:.65rem;border-radius:var(--r-sm);padding:.7rem 1rem;font-size:.83rem;color:var(--blue);background:var(--blue-bg);border:1px solid rgba(74,158,240,.25)">
+        <span style="display:inline-block;width:14px;height:14px;border:2px solid rgba(74,158,240,.3);border-top-color:var(--blue);border-radius:50%;animation:spin .7s linear infinite;margin-right:.5rem;vertical-align:middle"></span>
+        Validating photo…
+      </div>
+    </div>
+
+    <div style="display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap">
+      <button class="btn btn-g btn-sm" onclick="goPanel(1)">← Back</button>
+      <button class="btn btn-p" id="submitBtn" onclick="showConfirmSummary()">Review & Confirm →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONFIRM SUMMARY MODAL ══ -->
+<div id="confirmOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:998;backdrop-filter:blur(4px)"></div>
+<div id="confirmModal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:999;width:min(520px,95vw);max-height:92vh;overflow-y:auto;border-radius:16px;box-shadow:0 24px 64px rgba(0,0,0,.5)">
+  <div style="background:#fff;border-radius:16px;overflow:hidden">
+    <!-- Header -->
+    <div style="background:#1a1a2e;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;font-weight:700">📋 Confirm Registration</div>
+        <div style="font-size:.72rem;color:#aaa;margin-top:2px">Review all details before submitting</div>
+      </div>
+      <button onclick="closeConfirmSummary()" style="background:none;border:none;color:#aaa;font-size:1.4rem;cursor:pointer;line-height:1;padding:0 .25rem">✕</button>
+    </div>
+    <!-- Body -->
+    <div style="padding:1.25rem 1.5rem">
+
+      <!-- Photo only at top -->
+      <div id="cs-photo-wrap" style="display:none;justify-content:center;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid #eee">
+        <img id="cs-photo" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #c0392b"/>
+      </div>
+
+      <!-- All fields read-only -->
+      <div style="background:#f9f9f9;border:1px solid #eee;border-radius:10px;overflow:hidden;margin-bottom:1rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem;border-bottom:1px solid #eee">
+          <span style="font-size:.78rem;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.06em">Full Name</span>
+          <span style="font-size:.88rem;font-weight:700;color:#1565c0" id="cs-fullname">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem;border-bottom:1px solid #eee">
+          <span style="font-size:.78rem;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.06em">Parent / Guardian</span>
+          <span style="font-size:.88rem;font-weight:700;color:#e65100" id="cs-parent">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem;border-bottom:1px solid #eee">
+          <span style="font-size:.78rem;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.06em">Phone</span>
+          <span style="font-size:.88rem;font-weight:600;color:#111" id="cs-phone">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem;border-bottom:1px solid #eee">
+          <span style="font-size:.78rem;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.06em">Division</span>
+          <span style="font-size:.85rem;font-weight:600;color:#111;text-align:right;max-width:60%" id="cs-div">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem;border-bottom:1px solid #eee">
+          <span style="font-size:.78rem;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.06em">Corps</span>
+          <span style="font-size:.85rem;font-weight:600;color:#111;text-align:right;max-width:60%" id="cs-corps">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem">
+          <span style="font-size:.78rem;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.06em">Competition</span>
+          <span style="background:#e8f5e9;border:1px solid #a5d6a7;color:#1b5e20;font-size:.85rem;font-weight:700;padding:3px 12px;border-radius:20px" id="cs-comp">—</span>
+        </div>
+      </div>
+
+      <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:.7rem 1rem;font-size:.8rem;color:#f57f17;margin-bottom:1rem">
+        ⚠️ Please verify all details. Once submitted, changes cannot be made.
+      </div>
+
+      <div style="display:flex;gap:.75rem">
+        <button onclick="closeConfirmSummary()" style="flex:1;background:#f5f5f5;color:#333;border:1px solid #ddd;border-radius:8px;padding:.75rem 1rem;font-size:.88rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">← Edit</button>
+        <button onclick="this.disabled=true;this.textContent='⏳ Submitting…';submitForm()" id="confirmSubmitBtn" style="flex:2;background:#1b5e20;color:#fff;border:none;border-radius:8px;padding:.75rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif">✅ Confirm & Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PANEL 4 — SUCCESS ══ -->
+<div class="panel" id="p4">
+  <div class="card" style="text-align:center;padding:2.5rem 2rem;background:#fff!important">
+    <div class="suc-ico">🎉</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:.5rem;color:#111">You're Registered!</h2>
+
+    <!-- Capture target: summary card -->
+    <div id="reg-capture-card" style="background:#fff;border:1.5px solid #ddd;border-radius:var(--r);padding:1.5rem 1.75rem;text-align:left;max-width:420px;margin:0 auto 1.25rem;color:#111">
+      <!-- Card header -->
+      <div style="text-align:center;margin-bottom:1.1rem;padding-bottom:.85rem;border-bottom:1.5px solid #ddd">
+        <div style="font-size:.95rem;text-transform:uppercase;letter-spacing:.1em;color:#111;font-weight:700;margin-bottom:.3rem">THE SALVATION ARMY – ISET</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#c0392b;letter-spacing:.02em">COME &amp; SHINE Season 4</div>
+        <div style="font-size:.75rem;color:#555;margin-top:.3rem">Territorial Competition for Children and Youth 2026</div>
+      </div>
+      <!-- Photo centered at top -->
+      <div id="print-photo-wrap" style="display:none;justify-content:center;margin-bottom:1rem">
+        <img id="print-photo" style="width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid #c0392b"/>
+      </div>
+      <!-- Name -->
+      <div style="text-align:center;margin-bottom:.9rem;padding-bottom:.9rem;border-bottom:1px solid #eee">
+        <div style="font-size:1.1rem;font-weight:700;color:#1565c0" id="tk-name-row">—</div>
+      </div>
+      <!-- Fields -->
+      <div style="display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee"><span style="font-size:.82rem;color:#666">Date of Birth</span><span style="font-size:.92rem;font-weight:700;color:#2e7d32" id="tk-dob">—</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee"><span style="font-size:.82rem;color:#666">Parent / Guardian</span><span style="font-size:.92rem;font-weight:700;color:#e65100" id="tk-parent">—</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee"><span style="font-size:.82rem;color:#666">Division</span><span style="font-size:.85rem;font-weight:600;color:#111;text-align:right;max-width:60%" id="tk-div">—</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee"><span style="font-size:.82rem;color:#666">Corps</span><span style="font-size:.85rem;font-weight:600;color:#111;text-align:right;max-width:60%" id="tk-corps">—</span></div>
+      <!-- Competition + Date in single line boxes -->
+      <div style="display:flex;gap:.6rem;margin-top:.85rem;justify-content:center;flex-wrap:wrap">
+        <div style="flex:1;min-width:130px;background:#e8f5e9;border:1.5px solid #a5d6a7;border-radius:8px;padding:.45rem .9rem;text-align:center">
+          <span style="font-size:.65rem;color:#2e7d32;font-weight:600;text-transform:uppercase;letter-spacing:.07em;display:block;margin-bottom:2px">Competition</span>
+          <span style="font-size:.9rem;font-weight:700;color:#1b5e20" id="tk-cat">—</span>
+        </div>
+        <div style="flex:1;min-width:130px;background:#fce4ec;border:1.5px solid #f48fb1;border-radius:8px;padding:.45rem .9rem;text-align:center">
+          <span style="font-size:.65rem;color:#880e4f;font-weight:600;text-transform:uppercase;letter-spacing:.07em;display:block;margin-bottom:2px">Competition Date</span>
+          <span style="font-size:.9rem;font-weight:700;color:#c62828">29 Aug 2026</span>
+        </div>
+      </div>
+      <!-- QR Code -->
+      <div style="margin-top:1.1rem;text-align:center;padding-top:.9rem;border-top:1px solid #eee">
+        <div id="qr-code" style="display:inline-block;padding:8px;background:#fff;border:1px solid #ddd;border-radius:8px"></div>
+        <div style="font-size:.65rem;color:#888;margin-top:.4rem;letter-spacing:.05em">Scan to verify registration</div>
+      </div>
+    </div>
+
+    <div class="alert aok" style="display:block;text-align:left;max-width:420px;margin:0 auto 1.25rem">
+      ✅ Registration confirmed successfully!
+    </div>
+
+    <!-- Buttons -->
+    <div style="max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:.75rem">
+      <button class="btn btn-p" onclick="window.print()" style="width:100%;justify-content:center;font-size:1rem;padding:.85rem 1.75rem">
+        🖨️ Print / Save as PDF
+      </button>
+    </div>
+  </div>
+</div>
+
+</div><!-- /col -->
+
+<!-- SIDEBAR -->
+<div class="sbar">
+
+
+
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1rem 1.25rem;font-size:.79rem;color:var(--text3)">
+    🔒 Your ID is processed securely. Data is encrypted in transit and not retained after verification.
+  </div>
+</div>
+</div><!-- /main -->
+
+
+
+<!-- ══ DUPLICATE MODAL ══ -->
+<div id="dupOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;backdrop-filter:blur(4px)"></div>
+<div id="dupModal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1000;width:min(520px,92vw)">
+  <div style="background:var(--surface);border:1px solid rgba(240,80,80,.4);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.6)">
+    <div style="background:linear-gradient(135deg,rgba(240,80,80,.18),rgba(240,80,80,.06));border-bottom:1px solid rgba(240,80,80,.25);padding:1.5rem 1.75rem;display:flex;align-items:flex-start;gap:1rem">
+      <div style="width:48px;height:48px;border-radius:50%;background:rgba(240,80,80,.15);border:1px solid rgba(240,80,80,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">⚠️</div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--red);margin-bottom:.25rem">Already Registered!</h3>
+        <p style="font-size:.85rem;color:var(--text2);line-height:1.5">This identity is already in our system. Duplicate registrations are not permitted.</p>
+      </div>
+    </div>
+    <div style="padding:1.5rem 1.75rem">
+      <p style="font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-weight:600;margin-bottom:.75rem">Existing Registration Found</p>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:1.25rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.65rem 1.1rem;border-bottom:1px solid var(--border)">
+          <span style="font-size:.8rem;color:var(--text2)">Name on ID</span><span style="font-size:.88rem;font-weight:600;color:var(--text)" id="dup-name">-</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.65rem 1.1rem;border-bottom:1px solid var(--border)">
+          <span style="font-size:.8rem;color:var(--text2)">Date of Birth</span><span style="font-size:.88rem;font-weight:600;color:var(--text)" id="dup-dob">-</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.65rem 1.1rem;border-bottom:1px solid var(--border)">
+          <span style="font-size:.8rem;color:var(--text2)">Registered As</span><span style="font-size:.88rem;font-weight:600;color:var(--text)" id="dup-regname">-</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.65rem 1.1rem;border-bottom:1px solid var(--border)">
+          <span style="font-size:.8rem;color:var(--text2)">Registration ID</span><span style="font-size:.88rem;font-weight:600;color:var(--accent)" id="dup-regid">-</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.65rem 1.1rem">
+          <span style="font-size:.8rem;color:var(--text2)">Registered On</span><span style="font-size:.88rem;font-weight:600;color:var(--text)" id="dup-date">-</span>
+        </div>
+      </div>
+      <div style="background:rgba(240,80,80,.07);border:1px solid rgba(240,80,80,.2);border-radius:var(--r-sm);padding:.85rem 1rem;font-size:.83rem;color:var(--red);margin-bottom:1.25rem;line-height:1.55">
+        Each person may register only once. If you believe this is an error, please contact the event organiser.
+      </div>
+      <div style="display:flex;gap:.75rem">
+        <button class="btn btn-g" style="flex:1" onclick="closeDupModal()">Try Different ID</button>
+        <button class="btn" style="flex:1;background:var(--red);color:#fff" onclick="closeDupModalFull()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+/* ── Robust JSON extractor ── */
+function extractJSON(raw){
+  // 1. strip markdown fences
+  let s=raw.replace(/```json\s*/gi,'').replace(/```\s*/g,'').trim();
+  // 2. try direct parse
+  try{return JSON.parse(s);}catch(_){}
+  // 3. find first complete {...} block
+  const m=s.match(/\{[\s\S]*\}/);
+  if(m){try{return JSON.parse(m[0]);}catch(_){}}
+  // 4. try to fix common issues: trailing commas, single quotes
+  try{
+    let fixed=s.replace(/,\s*([}\]])/g,'$1').replace(/'/g,'"');
+    const m2=fixed.match(/\{[\s\S]*\}/);
+    if(m2)return JSON.parse(m2[0]);
+  }catch(_){}
+  // 5. build object from key:value patterns as last resort
+  try{
+    const obj={};
+    const pairs=s.matchAll(/"?([\w_]+)"?\s*:\s*"?([^",}\n]+)"?/g);
+    for(const [,k,v] of pairs) obj[k.trim()]=v.trim().replace(/^"|"$/g,'');
+    if(Object.keys(obj).length>0)return obj;
+  }catch(_){}
+  throw new Error('Could not parse AI response — please try a clearer image.');
+}
+
+/* ── Name formatter ── */
+/* Name as-is from ID, CAPS, surname first, initials of rest at end */
+/* e.g. "John Paul Thomas" → "THOMAS J P"                           */
+/* e.g. "Mary Joseph"      → "JOSEPH M"                             */
+/* e.g. "David"            → "DAVID"                                */
+function formatNameInitialLast(raw){
+  if(!raw||raw==='Not detected')return raw;
+  // Split on spaces/commas first (before removing dots)
+  const rawParts=raw.trim().split(/[\s,]+/).filter(Boolean);
+  // Detect initials: single letter possibly followed by a dot (e.g. "A" or "A.")
+  // Also detect "A." style where second character is a dot
+  const initials=[];
+  const full=[];
+  rawParts.forEach(p=>{
+    const clean=p.replace(/\./g,'').toUpperCase();
+    // It's an initial if the cleaned version is 1 char, OR if original had a dot as second char (e.g. "A.")
+    if(clean.length===1||(p.length>=2&&p[1]==='.')){
+      initials.push(clean.length===1?clean:clean[0]);
+    } else {
+      full.push(clean);
+    }
+  });
+  // Full names first, then initials at end
+  return [...full,...initials].join(' ');
+}
+
+
+const REGISTRY=[];
+function dupKey(name,dob,gender,parent,division,corps){
+  return [name,dob,gender,parent,division,corps]
+    .map(v=>(v||'').trim().toLowerCase().replace(/\s+/g,''))
+    .join('|');
+}
+function findDup(name,dob,gender,parent,division,corps){
+  const k=dupKey(name,dob,gender,parent,division,corps);
+  return REGISTRY.find(r=>r.key===k)||null;
+}
+
+function showDupModal(rec){
+  document.getElementById('dup-name').textContent=rec.name;
+  document.getElementById('dup-dob').textContent=rec.dob;
+  document.getElementById('dup-regname').textContent=rec.regName;
+  document.getElementById('dup-regid').textContent=rec.regId;
+  document.getElementById('dup-date').textContent=rec.regDate;
+  document.getElementById('dupOverlay').style.display='block';
+  document.getElementById('dupModal').style.display='block';
+}
+function closeDupModal(){
+  document.getElementById('dupOverlay').style.display='none';
+  document.getElementById('dupModal').style.display='none';
+  resetUpload();
+  goPanel(1);
+}
+function closeDupModalFull(){
+  document.getElementById('dupOverlay').style.display='none';
+  document.getElementById('dupModal').style.display='none';
+}
+
+/* ── Data store ── */
+const D={name:'',dob:'',age:0,gender:'',cat:'',idType:'',idNum:'',fname:'',lname:'',email:'',phone:'',city:'',tracks:[],activity:'',divisions:[]};
+
+/* ── Competition definitions (age-based, no category) ── */
+/*  Drawing 1   : Age 4–7
+    Drawing 2   : Age 8–10
+    Story Telling: Age 8–10
+    Singing     : Age 11–15
+    Speech      : Age 11–15                              */
+const COMPETITIONS=[
+  {key:'drawing1',  label:'Drawing 1',     emoji:'🎨', age:'Age 4–7',   min:4,  max:7,  color:'#f06292', cbg:'rgba(240,98,146,.12)', cborder:'rgba(240,98,146,.3)',  desc:'Drawing competition for participants aged 4 to 7.'},
+  {key:'drawing2',  label:'Drawing 2',     emoji:'🖌️', age:'Age 8–10',  min:8,  max:10, color:'#e91e63', cbg:'rgba(233,30,99,.12)',  cborder:'rgba(233,30,99,.3)',   desc:'Drawing competition for participants aged 8 to 10.'},
+  {key:'storytell', label:'Story Telling', emoji:'📖', age:'Age 8–10',  min:8,  max:10, color:'#ff9800', cbg:'rgba(255,152,0,.12)',  cborder:'rgba(255,152,0,.3)',   desc:'Story Telling competition for participants aged 8 to 10.'},
+  {key:'singing',   label:'Singing',       emoji:'🎤', age:'Age 11–15', min:11, max:15, color:'var(--blue)', cbg:'rgba(74,158,240,.12)', cborder:'rgba(74,158,240,.3)', desc:'Singing competition for participants aged 11 to 15.'},
+  {key:'speech',    label:'Speech',        emoji:'🗣️', age:'Age 11–15', min:11, max:15, color:'var(--green)', cbg:'rgba(34,201,122,.12)', cborder:'rgba(34,201,122,.3)', desc:'Speech competition for participants aged 11 to 15.'},
+  {key:'biblequiz', label:'Bible Quiz',    emoji:'📖', age:'Age 16–20', min:16, max:20, color:'#6a1b9a', cbg:'rgba(106,27,154,.12)', cborder:'rgba(106,27,154,.3)', desc:'Bible Quiz competition for participants aged 16 to 20.'},
+];
+
+/* Returns array of eligible competitions for a given age */
+function getEligible(age){
+  return COMPETITIONS.filter(c=>age>=c.min&&age<=c.max);
+}
+
+/* Reference date: 29 Aug 2026 (event date) */
+const REF_DATE=new Date(2026,7,29);
+function parseDOB(s){
+  const p=s.split('/');
+  if(p.length!==3||p[0].length!==2||p[1].length!==2||p[2].length!==4)return null;
+  const d=new Date(+p[2],+p[1]-1,+p[0]);
+  if(isNaN(d)||d>REF_DATE)return null; // must be born before event date
+  return d;
+}
+function calcAge(dobStr){
+  const d=parseDOB(dobStr);
+  if(!d)return null;
+  const n=REF_DATE; // age as on 29 Aug 2026
+  let a=n.getFullYear()-d.getFullYear();
+  if(n.getMonth()<d.getMonth()||(n.getMonth()===d.getMonth()&&n.getDate()<d.getDate()))a--;
+  return a;
+}
+
+/* ── Stepper ── */
+function goPanel(n){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('p'+n).classList.add('active');
+  window.scrollTo({top:130,behavior:'smooth'});
+  for(let i=1;i<=4;i++){
+    const g=document.getElementById('sg'+i);
+    const dot=document.getElementById('sd'+i);
+    g.classList.remove('active','done');
+    if(i<n){g.classList.add('done');dot.textContent='✓';}
+    else if(i===n){g.classList.add('active');dot.textContent=i<4?i:'✓';}
+    else{dot.textContent=i<4?i:'✓';}
+    if(i<4)document.getElementById('sl'+i).style.background=i<n?'var(--green)':'var(--border)';
+  }
+}
+
+/* ── File upload ── */
+function handleFile(e){
+  const file=e.target.files[0];
+  if(!file)return;
+  clearErr('e1');
+  if(file.size>10*1024*1024){showErr('e1','File too large — max 10 MB.');return;}
+  if(!file.type.startsWith('image/')){showErr('e1','Please upload a JPEG or PNG image.');return;}
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    const img=document.getElementById('idImg');
+    img.src=ev.target.result;img.style.display='block';
+    document.getElementById('uZone').style.display='none';
+    extractID(file);
+  };
+  reader.readAsDataURL(file);
+}
+
+async function extractID(file){
+  document.getElementById('extLoad').style.display='block';
+  document.getElementById('exBox').style.display='none';
+  try{
+    const b64=await toB64(file);
+    const res=await fetch('/api/scan',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'meta-llama/llama-4-scout-17b-16e-instruct',
+        max_tokens:512,
+        messages:[{role:'user',content:[
+          {type:'image',source:{type:'base64',media_type:file.type,data:b64}},
+          {type:'text',text:`You are a precise OCR system for government ID documents.
+Examine this ID card image. Extract the following and return ONLY a JSON object (no markdown, no preamble, no explanation):
+{
+  "full_name": "complete full name exactly as printed on the ID — include all words (first, middle, last) — do not shorten or abbreviate, or null if not readable",
+  "date_of_birth": "in DD/MM/YYYY format, or null if not found",
+  "gender": "one of: Male, Female, Transgender, or null if not found",
+  "id_type": "one of: Aadhaar Card, Voter ID, Passport, Driving Licence, PAN Card, Other",
+  "id_number": "show only last 4 digits, mask rest with X, e.g. XXXX-XXXX-1234, or null"
+}
+If this is NOT an ID card, add "error": "Not an ID card" and set other fields to null.
+IMPORTANT: date_of_birth must strictly follow DD/MM/YYYY with 2-digit day, 2-digit month, 4-digit year.
+IMPORTANT: full_name must be the complete name as it appears — never use initials in place of full words.`}
+        ]}]
+      })
+    });
+    if(!res.ok){const err=await res.json().catch(()=>({}));throw new Error((err?.error?.message)||(err?.type)||('API error '+res.status));}
+    const data=await res.json();
+    const txt=(data.choices&&data.choices[0]&&data.choices[0].message&&data.choices[0].message.content)||'';
+    let parsed;
+    try{parsed=extractJSON(txt);}
+    catch(pe){throw new Error(pe.message);}
+    if(parsed.error&&!parsed.full_name&&!parsed.date_of_birth)throw new Error(parsed.error);
+    if(!parsed.full_name&&!parsed.date_of_birth&&!parsed.gender)throw new Error('No readable text found. Please upload a well-lit, clear photo of your ID.');
+
+    D.name=formatNameInitialLast(parsed.full_name||'Not detected');
+    D.fullName=parsed.full_name||'Not detected'; // raw full name for sheet
+    D.dob=parsed.date_of_birth||'';
+    D.gender=parsed.gender||'Not detected';
+    D.idType=parsed.id_type||'Unknown';
+    D.idNum=parsed.id_number||'—';
+
+    document.getElementById('extLoad').style.display='none';
+    document.getElementById('exBox').style.display='block';
+    document.getElementById('exName').textContent=D.name;
+    document.getElementById('exDOB').textContent=D.dob||'Not found';
+    document.getElementById('exGender').textContent=D.gender||'Not detected';
+    document.getElementById('exType').textContent=D.idType;
+    document.getElementById('exID').textContent=D.idNum;
+  }catch(err){
+    document.getElementById('extLoad').style.display='none';
+    resetUpload(false);
+    showErr('e1','⚠ '+err.message);
+  }
+}
+
+function toB64(file){
+  return new Promise((res,rej)=>{
+    const r=new FileReader();
+    r.onload=e=>res(e.target.result.split(',')[1]);
+    r.onerror=rej;r.readAsDataURL(file);
+  });
+}
+
+function resetUpload(full=true){
+  if(full){document.getElementById('idFile').value='';D.name='';D.dob='';}
+  document.getElementById('idImg').style.display='none';
+  document.getElementById('exBox').style.display='none';
+  document.getElementById('extLoad').style.display='none';
+  document.getElementById('uZone').style.display='block';
+  if(full)clearErr('e1');
+}
+
+/* ── Confirm step ── */
+function goConfirm(){
+  clearErr('e1');
+  if(!D.name||D.name==='Not detected'){showErr('e1','Name not extracted. Please re-upload a clearer ID photo.');return;}
+  if(!D.dob){showErr('e1','Date of birth not found. Please re-upload a clearer ID photo.');return;}
+  const age=calcAge(D.dob);
+  if(age===null){showErr('e1','Date of birth format invalid ("'+D.dob+'"). Re-upload — must be DD/MM/YYYY.');return;}
+  if(age<4||age>20){showErr('e1','Age calculated as '+age+' (as on 29 Aug 2026) — must be between 4 and 20. Please re-upload.');return;}
+  // ── Duplicate check ──
+  const dup=findDup(D.name,D.dob,D.gender||'','','','');
+  if(dup){showDupModal(dup);return;}
+  D.age=age;
+  D.ageYears=age;
+  const eligible=getEligible(age);
+  D.eligible=eligible;
+  // Skip p2 — go straight to registration form
+  goRegistration();
+}
+
+/* ── Build registration form ── */
+function goRegistrationDirect(){
+  goConfirm();
+}
+function goRegistration(){
+  const eligible=D.eligible||[];
+  // Use first eligible competition's colour for badge
+  const first=eligible[0]||{emoji:'🎯',label:'Competition',color:'var(--accent)',cbg:'rgba(240,98,42,.12)',cborder:'rgba(240,98,42,.3)'};
+
+  document.getElementById('p3Ico').textContent=first.emoji;
+  document.getElementById('p3Title').textContent='Registration Form';
+  document.getElementById('p3Sub').textContent='Fill in your details to complete registration.';
+  document.getElementById('p3Badge').innerHTML=`<div class="catbadge" style="color:${first.color};background:${first.cbg};border-color:${first.cborder};margin-bottom:1rem">Age ${D.age} — Eligible: ${eligible.map(c=>c.emoji+' '+c.label).join(' · ')}</div>`;
+  document.getElementById('p3Perks').innerHTML='';
+
+  // Fill read-only ID display fields
+  document.getElementById('f-fn').value=D.name||'';
+  document.getElementById('f-fn-display').textContent=D.name||'—';
+  document.getElementById('f-gender-display').textContent=D.gender||'—';
+  document.getElementById('f-dob-display').textContent=D.dob||'—';
+  document.getElementById('corpsField').style.display='none';
+  document.getElementById('corpsSelect').innerHTML='<option value="">Select Corps…</option>';
+
+  // Competition selection
+  let compHTML='';
+  if(eligible.length===1){
+    // Only one option — show as info, no radio needed
+    const c=eligible[0];
+    compHTML=`<div class="field"><label>Competition</label>
+      <div style="display:flex;align-items:center;gap:10px;background:${c.cbg};border:1.5px solid ${c.cborder};border-radius:var(--r-sm);padding:.75rem 1.1rem;font-size:.95rem;font-weight:600;color:${c.color}">
+        ${c.emoji} ${c.label} <span style="font-size:.78rem;font-weight:400;opacity:.75">(${c.age})</span>
+      </div>
+      <input type="hidden" id="comp-fixed" value="${c.label}"/>
+    </div>`;
+  } else {
+    // Multiple eligible — show radio buttons
+    compHTML=`<div class="field"><label>Choose Your Competition</label>
+      <div style="display:flex;gap:.75rem;margin-top:.5rem;flex-wrap:wrap" id="comp-radio-group">
+        ${eligible.map(c=>`<label class="act-opt" style="display:flex;align-items:center;gap:9px;cursor:pointer;background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:.65rem 1.25rem;font-size:.92rem;color:var(--text2);transition:all .22s;flex:1;min-width:150px">
+          <input type="radio" name="comp_choice" value="${c.label}" style="width:16px;height:16px;accent-color:var(--accent);cursor:pointer" onchange="highlightActivity()"/>
+          ${c.emoji} ${c.label}
+        </label>`).join('')}
+      </div>
+    </div>`;
+  }
+  document.getElementById('dynFields').innerHTML=compHTML;
+
+  goPanel(3);
+}
+
+/* ── Photo Upload & Validation (face only) ── */
+let photoB64='', photoMime='', photoValid=false;
+
+function handlePhotoUpload(e){
+  const file=e.target.files[0];
+  if(!file)return;
+  if(file.size>5*1024*1024){showPhotoStatus('err','⚠ File too large — max 5 MB.');return;}
+  if(!file.type.startsWith('image/')){showPhotoStatus('err','⚠ Please upload a JPEG or PNG image.');return;}
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    photoB64=ev.target.result.split(',')[1];
+    photoMime=file.type;
+    const img=document.getElementById('photoPreview');
+    img.src=ev.target.result;
+    img.style.display='block';
+    document.getElementById('photoPlaceholder').style.display='none';
+    document.getElementById('photoStatus').style.display='none';
+    validatePhoto();
+  };
+  reader.readAsDataURL(file);
+}
+
+async function validatePhoto(){
+  photoValid=false;
+  const pv=document.getElementById('photoValidating');
+  const ps=document.getElementById('photoStatus');
+  ps.style.display='none';
+  pv.style.display='block';
+  try{
+    const res=await fetch('/api/scan',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'meta-llama/llama-4-scout-17b-16e-instruct',max_tokens:200,
+        messages:[{role:'user',content:[
+          {type:'image',source:{type:'base64',media_type:photoMime,data:photoB64}},
+          {type:'text',text:'Examine this image strictly. Respond ONLY with a JSON object (no markdown):\n{"valid":true/false,"reason":"brief reason"}\nSet valid=true ONLY if: (1) clear human face visible, (2) front-facing, (3) face/head only — NOT a full-body photo, (4) single person. Set valid=false with reason if it is a full body photo, a document scan, or face is not clearly visible.'}
+        ]}]
+      })
+    });
+    const data=await res.json();
+    const txt=(data.choices&&data.choices[0]&&data.choices[0].message&&data.choices[0].message.content)||'';
+    const parsed=extractJSON(txt);
+    pv.style.display='none';
+    if(parsed.valid){
+      photoValid=true;
+      showPhotoStatus('ok','✓ Photo accepted — '+parsed.reason);
+    } else {
+      photoValid=false;
+      showPhotoStatus('err','✗ Photo rejected — '+(parsed.reason||'Please upload a clear face-only photo')+'. Please re-upload.');
+      document.getElementById('photoFile').value='';
+      document.getElementById('photoPreview').style.display='none';
+      document.getElementById('photoPlaceholder').style.display='block';
+      photoB64='';photoMime='';
+    }
+  }catch(err){
+    pv.style.display='none';
+    showPhotoStatus('err','⚠ Could not validate photo. Please try again.');
+  }
+}
+
+function showPhotoStatus(type,msg){
+  const ps=document.getElementById('photoStatus');
+  ps.style.display='block';
+  if(type==='ok'){
+    ps.style.background='var(--green-bg)';ps.style.border='1px solid rgba(34,201,122,.3)';ps.style.color='var(--green)';
+  } else {
+    ps.style.background='var(--red-bg)';ps.style.border='1px solid rgba(240,80,80,.3)';ps.style.color='var(--red)';
+  }
+  ps.textContent=msg;
+}
+
+/* ── Google Sheets submit ── */
+const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxzB7nP4T3ZH9WrCHHaW-sK_mbBVVqrA7UXcfchRc1uPY6AnKxZGGieZ2l6rO8uJgYb/exec';
+
+function getNextSerial(){
+  return new Promise((resolve)=>{
+    const cb='_serialCb'+Date.now();
+    const s=document.createElement('script');
+    const t=setTimeout(()=>{s.remove();delete window[cb];resolve(Math.floor(Date.now()/1000)%9000+1);},6000);
+    window[cb]=function(res){
+      clearTimeout(t);s.remove();delete window[cb];
+      resolve(res.next||1);
+    };
+    s.onerror=()=>{clearTimeout(t);s.remove();delete window[cb];resolve(Math.floor(Date.now()/1000)%9000+1);};
+    s.src=APPS_SCRIPT_URL+'?action=nextserial&callback='+cb;
+    document.body.appendChild(s);
+  });
+}
+
+let _submitting=false;
+function submitToSheet(row){
+  if(_submitting){console.warn('Duplicate submit blocked');return;}
+  _submitting=true;
+  try{
+    const params=new URLSearchParams();
+    params.append('action','save'); // explicit action to avoid ambiguity
+    const rowClean={...row};
+    delete rowClean.photo;
+    delete rowClean.action;
+    Object.keys(rowClean).forEach(k=>params.append(k,String(rowClean[k]||'')));
+    const cb='_submitCb'+Date.now();
+    const s=document.createElement('script');
+    const t=setTimeout(()=>{s.remove();delete window[cb];_submitting=false;console.warn('Sheet submit timeout');},12000);
+    window[cb]=function(res){clearTimeout(t);s.remove();delete window[cb];_submitting=false;console.log('Sheet saved:',res.status);};
+    s.onerror=()=>{clearTimeout(t);s.remove();delete window[cb];_submitting=false;console.warn('Sheet submit failed');};
+    s.src=APPS_SCRIPT_URL+'?'+params.toString()+'&callback='+cb;
+    document.body.appendChild(s);
+    console.log('Sheet: single submit fired');
+  }catch(e){
+    _submitting=false;
+    console.warn('Sheet submit error:',e);
+  }
+}
+
+/* ── Submit ── */
+function submitForm(){
+  closeConfirmSummary();
+  clearErr('e3');
+  const name=document.getElementById('f-fn').value.trim();
+  if(!name){showErr('e3','Name could not be filled from ID. Please go back and re-upload.');return;}
+  const parentName=document.getElementById('f-parent').value.trim();
+  if(!parentName){showErr('e3','Please enter Parent / Guardian name.');return;}
+  const phone=document.getElementById('f-ph').value.trim().replace(/\s+/g,'');
+  if(!phone){showErr('e3','Please enter a phone number.');return;}
+  if(!/^\d{10}$/.test(phone)){showErr('e3','Phone number must be exactly 10 digits.');return;}
+  const divSel=document.getElementById('divisionSelect').value;
+  if(!divSel){showErr('e3','Please select a Division / District / Extension.');return;}
+  const corpsSel=document.getElementById('corpsSelect').value;
+  if(Object.keys(CORPS_DATA).some(k=>divSel.startsWith(k))&&!corpsSel){showErr('e3','Please select a Corps.');return;}
+  if(!photoValid){showErr('e3','Please upload a valid face photo.');return;}
+
+  // Competition selection
+  const fixedComp=document.getElementById('comp-fixed');
+  let competition='';
+  if(fixedComp){
+    competition=fixedComp.value;
+  } else {
+    const radioEl=document.querySelector('input[name="comp_choice"]:checked');
+    if(!radioEl){showErr('e3','Please select your competition.');return;}
+    competition=radioEl.value;
+  }
+
+  D.fname=name;D.lname='';
+  D.parentName=parentName;
+  D.phone=phone;
+  D.divisions=[divSel];
+  D.corps=corpsSel||divSel;
+  D.activity=competition;
+
+  // Full duplicate check with all 6 fields
+  const fullDupKey=dupKey(D.name,D.dob,D.gender||'',parentName,divSel,corpsSel||'');
+  const existingDup=REGISTRY.find(r=>r.key===fullDupKey);
+  if(existingDup){
+    showErr('e3','⚠ Already registered! This candidate ('+D.fname+') with the same details is already registered.');
+    return;
+  }
+
+  const now=new Date().toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'});
+
+  // Show loading
+  const submitBtn=document.querySelector('#p3 .btn-p');
+  if(submitBtn){submitBtn.disabled=true;submitBtn.textContent='⏳ Registering…';}
+
+  // Get next serial number from sheet
+  getNextSerial().then(seqNum=>{
+    const rid='CS4-'+String(seqNum).padStart(4,'0');
+
+    // Save to in-memory registry with all 6 fields
+    REGISTRY.push({
+      key:fullDupKey,
+      name:D.name, dob:D.dob,
+      regName:D.fname,
+      regId:rid, regDate:now, cat:competition
+    });
+
+    // Submit to Google Sheet with photo
+    submitToSheet({
+      regId:rid,
+      name:name,
+      dob:D.dob,
+      gender:D.gender||'',
+      parent:parentName,
+      phone:phone,
+      division:divSel,
+      corps:D.corps||corpsSel,
+      competition:competition,
+      status:'Absent',
+      registeredAt:now
+    });
+
+    function safeSet(id,val){const el=document.getElementById(id);if(el)el.textContent=val;}
+    safeSet('tk-name-row',D.fname);
+    safeSet('tk-cat',competition);
+    safeSet('tk-dob',D.dob);
+    safeSet('tk-div',divSel);
+    safeSet('tk-corps',D.corps||corpsSel||'—');
+    safeSet('tk-parent',parentName);
+
+    // Show face photo
+    const printPhotoWrap=document.getElementById('print-photo-wrap');
+    const printPhoto=document.getElementById('print-photo');
+    if(photoB64&&photoMime){
+      printPhoto.src='data:'+photoMime+';base64,'+photoB64;
+      printPhotoWrap.style.display='flex';
+    } else {
+      printPhotoWrap.style.display='none';
+    }
+
+    // QR code
+    const qrEl=document.getElementById('qr-code');
+    if(qrEl){
+      qrEl.innerHTML='';
+      // Encode payload safely — use encodeURIComponent-safe base64 to handle Tamil chars
+      const qrData={n:D.fname,d:D.dob,c:competition,div:divSel,co:D.corps||corpsSel||'',p:parentName,dt:'29 Aug 2026'};
+      const qrPayload=btoa(encodeURIComponent(JSON.stringify(qrData)));
+      const verifyUrl=window.location.href.split('?')[0]+'?verify='+qrPayload;
+      new QRCode(qrEl,{text:verifyUrl,width:160,height:160,colorDark:'#000',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.L});
+    }
+
+    if(submitBtn){submitBtn.disabled=false;submitBtn.textContent='Submit Registration';}
+    _submitting=false;
+    goPanel(4);
+  }).catch(err=>{
+    if(submitBtn){submitBtn.disabled=false;submitBtn.textContent='Submit Registration';}
+    showErr('e3','Registration failed: '+err.message);
+  });
+}
+
+function showConfirmSummary(){
+  const parentName=document.getElementById('f-parent').value.trim();
+  const phone=document.getElementById('f-ph').value.trim().replace(/\s+/g,'');
+  const divSel=document.getElementById('divisionSelect').value;
+  const corpsSel=document.getElementById('corpsSelect').value;
+
+  // Get competition — handle radio, hidden input, or comp_choice radio
+  let competition='';
+  const radioChecked=document.querySelector('input[name="activity"]:checked')||document.querySelector('input[name="comp_choice"]:checked');
+  if(radioChecked) competition=radioChecked.value;
+  if(!competition){
+    const fixed=document.getElementById('comp-fixed');
+    if(fixed) competition=fixed.value;
+  }
+
+  if(!parentName){showErr('e3','Please enter Parent / Guardian name.');return;}
+  if(!phone){showErr('e3','Please enter a phone number.');return;}
+  if(!/^\d{10}$/.test(phone)){showErr('e3','Phone number must be exactly 10 digits.');return;}
+  if(!divSel){showErr('e3','Please select a Division.');return;}
+  if(Object.keys(CORPS_DATA).some(k=>divSel.startsWith(k))&&!corpsSel){showErr('e3','Please select a Corps.');return;}
+  if(!competition){showErr('e3','Please select a competition.');return;}
+  clearErr('e3');
+
+  // Fill confirm modal fields
+  const fname=D.fname||document.getElementById('f-fn').value||'—';
+  const safeEl=(id,val)=>{const el=document.getElementById(id);if(el)el.textContent=val;};
+  safeEl('cs-fullname',fname);
+  safeEl('cs-name',fname);
+  safeEl('cs-dob-sub',(D.dob||'—')+' · '+(D.gender||''));
+  safeEl('cs-dob',D.dob||'—');
+  safeEl('cs-gender',D.gender||'—');
+  safeEl('cs-parent',parentName);
+  safeEl('cs-phone',phone);
+  safeEl('cs-div',divSel);
+  safeEl('cs-corps',corpsSel||'—');
+  safeEl('cs-comp',competition);
+
+  // Show photo if uploaded
+  const csPhotoWrap=document.getElementById('cs-photo-wrap');
+  const csPhoto=document.getElementById('cs-photo');
+  if(photoB64&&photoMime){
+    csPhoto.src='data:'+photoMime+';base64,'+photoB64;
+    csPhotoWrap.style.display='flex';
+  } else {
+    csPhotoWrap.style.display='none';
+  }
+
+  document.getElementById('confirmOverlay').style.display='block';
+  document.getElementById('confirmModal').style.display='block';
+  document.getElementById('confirmModal').scrollTop=0;
+}
+function closeConfirmSummary(){
+  document.getElementById('confirmOverlay').style.display='none';
+  document.getElementById('confirmModal').style.display='none';
+}
+
+async function saveAsJpg(){
+  const btn=document.getElementById('saveJpgBtn');
+  btn.disabled=true;
+  btn.textContent='⏳ Generating…';
+  try{
+    const card=document.getElementById('reg-capture-card');
+    const canvas=await html2canvas(card,{
+      backgroundColor:'#ffffff',
+      scale:2,
+      useCORS:true,
+      allowTaint:true,
+      logging:false
+    });
+    const link=document.createElement('a');
+    const regId='registration';
+    const name=(document.getElementById('tk-name-row').textContent||'card').replace(/\s+/g,'_');
+    link.download='ComeAndShine_'+name+'_'+regId+'.jpg';
+    link.href=canvas.toDataURL('image/jpeg',0.95);
+    link.click();
+    btn.disabled=false;
+    btn.textContent='📥 Save Registration Card as JPG';
+  }catch(err){
+    btn.disabled=false;
+    btn.textContent='📥 Save Registration Card as JPG';
+    alert('Could not generate image. Please try again.\n'+err.message);
+  }
+}
+
+/* ── Helpers ── */
+function showErr(id,msg){const e=document.getElementById(id);e.textContent=msg;e.style.display='block';}
+function clearErr(id){document.getElementById(id).style.display='none';}
+
+
+const CORPS_DATA={
+  'MARTHANDAM':['ARUMANAI - அருமனை','ARUMANAI WEST - அருமனை மேற்கு','ANDUCODE - அண்டுகோடு','ATTOOR - ஆற்றூர்','CHAIKODE - சாய்க்கோடு','CHITHARAL - சிதறால்','CHEMMUTHAL - செம்முதல்','IYNGAMAM OLD - பழைய ஐங்காமம்','IYNGAMAM NEW - புதிய ஐங்காமம்','KUTTAKUZHI - குட்டகுழி','KAVIYALOOR EAST - கவியலூர் கிழக்கு','KODUNKULAM - கொடுங்குளம்','KARUNGAL - கருங்கல்','KILLIANCODE - கிளியன்கோடு','KOLLANCODE - கொல்லங்கோடு','KANCHIRODE - காஞ்சிரோடு','KANCHIRODE EAST - காஞ்சிரோடு கிழக்கு','KAVIYALOOR WEST - கவியலூர் மேற்கு','KODUNKULAM EAST - கொடுங்குளம் கிழக்கு','KUNCHANCODE - குஞ்சான்கோடு','MALAMARI - மலமாரி','MOOVOTTUKONAM - மூவோட்டுகோணம்','MATHAR - மாத்தார்','NEDIYANCODE - நெடியாங்கோடு','NATTALAM - நட்டாலம்','PERUMPUZHY - பெரும்புளி','PERUMANKUZHI - பெருமாங்குழி','PALOOR - பாலூர்','PERAI - பேரை','POOTETTY - பூட்டேற்றி','THIKKURICHY - திக்குறிச்சி','THIPPIRAMALAI - திப்பிறமலை','THIRUVATTAR - திருவட்டார்','VANNIOOR - வன்னியூர்','VELLACODE - வெள்ளங்கோடு','VEEYANOOR - வீயனூர்','YETTACODE - ஏற்றகோடு'],
+  'THUCKALAY':['ALANCODU - ஆலங்கோடு','BRAMMAPURAM - பிரம்மபுரம்','THUCKALAY LEYTON HALL','CHADAYANVILAI - சடையன்விளை','CHAKKAPATHU - சக்கப்பத்து','CHARODE - சாரோடு','CHEMPARUTHIVILAI - செம்பருத்திவிளை','CHENGARAVILAI - சேங்கிறவிளை','KALKURICHY - கல்குறிச்சி','KANNANOOR - கண்ணணூர்','KARINJANKODU - கரிஞ்சன்கோடு','KATTIMANCODE - கட்டிமாங்கோடு','KIRUBA NAGER - கிருபா நகர்','KURUMANKUZHY - குருமாங்குழி','KAPPIYARAI - கப்பியரை','MANKUZHY - மாங்குழி','MARUNTHUKOTTAI - மருந்துக்கோட்டை','MATCHAKARAI - மச்சக்கரை','MELA MANIYANKUZHY - மேல மணியன்குழி','MARUTHUKURICHY - மருதூர்குறிச்சி','MANAKARAI - மணக்கரை','MANALIKARAI - மணலிக்கரை','MARANCONAM - மாறாங்கோணம்','MARAVOORCONAM - மரவூர்க்கோணம்','MUTTAIKADU - முட்டைக்காடு','NETTANCODE - நெட்டான்கோடு','ODUPPARAI - ஒடுப்புறை','OTTALIVILLAI - ஒட்டலிவிளை','PALLIKARAI - பள்ளிக்கரை','PALATINKARAI - பாலாற்றின்கரை','POOVANCODE - பூவன்கோடு','PUKKODU - புக்கோடு','PERUNCODE - பெருங்கோடு','PALLIYADY - பள்ளியாடி','SARALVILAI - சரல்விளை','THALAKUZHAM - தலக்குளம்','VALIKKALAMPADU - வலிக்கலம்பாடு','VELLACHIVILAI - வெள்ளச்சிவிளை','VILAVOOR - விலவூர்','VIL PARAYADI - வில் பாறையடி'],
+  'PALAYAMKOTTAI':['PALAYAMKOTTAI CENTRAL HALL - பாளையங்கோட்டை மத்திய மண்டபம்','MARANTHAI - மரந்தை','MOONGILADY - மூங்கிலடி','ERIKALAI PATTI - எரிக்கலை பட்டி','MOOLAKARAIPATTI - மூலக்கரைப்பட்டி','MELACHAVEL - மேலச்சேவல்','VEERAVANALLOR - வீரவணல்லூர்','PATHAIYOOR - பத்தையூர்','AMBEDKAR NAGER - அம்பேத்கர் நகர்','KALAKADU - களக்காடு','P K KULAM - பி கே குளம்','PONNAKUDY - பொன்னக்குடி','SIVANTHIPATTY - சிவந்திப்பட்டி','V.K NAGER - வி.கே நகர்','ZION NAGER - சீயோன் நகர்'],
+  'ARALVAIMOZHI':['ARALVAIMOZHI - ஆரல்வாய்மொழி','ARALVAIMOZHI VTC - ஆரல்வாய்மொழி VTC','CHENBAGARAMANPUTHOOR - செண்பகராமன்புதூர்','OVAIYAR COLONY - ஓவையார் காலனி','THOVAZLAI - தோவாளை','LAYAM - லாயம்','PAZHAVOOR - பழவூர்','KANNANKULAM - கண்ணங்குளம்'],
+  'KANYAKUMARI':['ATCHANKULAM - அட்சங்குளம்','AUTHIYADY - ஆத்தியடி','ATTAKULAM - அட்டகுளம்','CHALAIPUTHOOR - சாலைப்புத்தூர்','CHITHRAMPURAM - சித்திரம்புரம்','JOSEPHPURAM - ஜோசப்புரம்','E N KULAM - E N குளம்','KUMARESANPUTHOOR - குமரேசன்புதூர்','KARAMBAVILAI - கரம்பவிளை','KARCADU - கக்காடு','KUTHIKKAL - குடிக்கல்','KALKURUMPOTHAI - கல்குறும்பொதை','KARAYANKUZHY - கரையாங்குழி','KADAIGRAMMAM - கடைகிராமம்','KONAVILAI - கோணவிளை','KALVILLAI - கல்விளை','KRISHNANPUTHOOR - கிருஷ்ணன்புதூர்','LEXMIPURAM - லெக்ஸ்மிபுரம்','MANTHANAMPUTHOOR - மந்தானம்புதூர்','MURUNKOOR COLONY - முருங்கூர் காலனி','MANAKUDY - மணக்குடி','MAHARAJAPURAM - மகாராஜபுரம்','MEIGANAPURAM - மெய்ஞானபுரம்','NARIKULAM - நரிகுளம்','OSARAVILAI - ஒசரவிளை','PERIYAVILAI - பெரியவிளை','PULLIANKULAM - புளியங்குளம்','PURAKULAM - புறகுளம்','PRANTHANERY - பிராந்தனேரி','THEROOR - தேரூர்','VARIOOR - வரியுர்','VADAKARAI - வடகரை'],
+  'NAGERCOIL':['BEEMA NAGAR - பீம நகர்','BTMC - பூத்டக்கர் நினைவு பேராலயம்','CHUNKANKADAI - சுங்காங்கடை','CHADAYANKULAM - சடையங்குளம்','ELANTHAIYADY - இலந்தையடி','ELUPPAYADY - இலுப்பையாடி','ELANKADAI - இலங்கடை','IYKIYAPURAM - ஐக்கியபுரம்','KUNNUVILAI - குன்னுவிளை','KADETY - காட்டேற்றி','KANNANKULAM - கண்ணங்குளம்','KOTHANKULAM - கொத்தங்குளம்','KULASEKERAMPUTHOOR - குலசேகரன்புதூர்','KARAYANKUZHI - கரையாங்குழி','KANNIYAKULAM PARAYADY - கனியாகுளம் பாறையடி','KARUPPUKOTTAI - கருப்புக்கோட்டை','KULATHOOR - குளத்தூர்','PANDARATHOPPU - பண்டாரத்தோப்பு','PUTHUGRAMMAM - புதுகிராமம்','PAULKULAM - பால்குளம்','PARAIYADY - பாறையடி','THIRUPATHISARAM - திருப்பதிசாரம்','THATHIYARKULAM - தத்தியார்குளம்','VADASERY - வடசேரி'],
+  'AZHAGIAPANDIAPURAM':['ALADY - ஆலடி','ARANSANKUZHI - அரசன்குழி','BOOTHAPANDY - பூதப்பாண்டி','CHEMPONVILAI - செம்பொன்விளை','DENNISPURAM - டென்னிஸ்புரம்','ETTAMADAI - எட்டாமடை','GNANAIAHPURAM - ஞானையாபுரம்','GNALAM - ஞானம்','KESAVANERY - கேசவனேரி','KATTUPUTHOOR - காட்டுப்புதூர்','KANDANKUZHY - கண்டண்குழி','KANDALAVOO - கண்டளவு','KUKKALVILAGAM - குக்கல்விளாகம்','KADAMPADIVILAGAM - கடம்பாடிவிளாகம்','MANNADY - மண்ணடி','NAVALKADU - நாவல்காடு','NANGANDY - நங்காண்டி','NANTIKUZHY - நன்றிகுழி','PACKIANNERY - பாக்கியனேரி','PEYODU SOUTH - பெயோடு தெற்கு','PEYODU NORTH - பெயோடு வடக்கு','RETNAPURAM - ரெத்னாபுரம்','SURLODU - சுர்லோடு','SEETHAPAUL - சீதபால்','THELLANTHY - தெள்ளந்தி','THAZAKUDY - தாழக்குடி','THITTUVILAI - திட்டுவிளை','VARAGUNAMANGALAM - வரகுணமங்கலம்','VISHNUPURAM - விஷ்ணுபுரம்'],
+  'INSTITUTION':['CBH BOYS HOME, NAGERCOIL','TUCKER GIRLS HOME, NAGERCOIL','NM BOYS HOME, VALLIOOR'],
+  'KULASEKARAM':['ANDOOR - அண்டூர்','ANDAMPARAI - அண்டம்பாறை','CHEKKUMOODU - செக்குமூடு','CHECKKAL - சேக்கல்','KULASEKARAM CENTRAL HALL - குலசேகரம் சென்ட்ரல் ஹால்','KADUGANOORVILAI - கடுகனூர்விளை','KAYALAVILAI - கயலவிளை','KOTTURKONAM - கோட்டூர்கோணம்','KUMARANKUDY - குமரன்குடி','KUZHIKALAI - குழிகல','KOLVAI - கோல்வாய்','MANNARAMCODE - மன்னார்கோடு','MUTHALAR - முதலார்','MAICODE - மேகோடு','MATHOOR - மாத்தூர்','NENCHANCHY - நெஞ்சஞ்சி','PERUNCHAKONAM - பெருஞ்சாகோணம்','PERINCHILAMBU - பெரிஞ்சிலம்பு','PANNIPOTHAI - பண்ணிபொத்தை','RETCHANYAPURAM - இரட்சண்யபுரம்','THIRUVARABOO - திருவரம்பு','THENGUVILAI - தெங்குவிளை','THETTICODE - தெட்டிகோடு','THENPARAYADY - தென்பராயடி','THUMBACODE - தும்பகோடு','VALIYAVILAI - வலியவிளை','VALIYATHUMUGAM - வலியாற்றுமுகம்','VILAVOORKONAM - விலவூர்கோணம்'],
+  'VALLIOOR':['AMMACHIKOIL - அம்மாச்சிக்கோயில்','CENBAGARAMANALLOOR - செண்பகராமநல்லூர்','CHANGANANKULAM - சங்கனங்குளம்','ERUVADY - ஏர்வாடி','ERANTHAI - ஏரந்தை','KATTALAI - கட்டளை','KOVILAMMALPURAM EAST - கோவிலம்மாள்புரம் கிழக்கு','KOVILAMMALPURAM WEST - கோவிலம்மாள்புரம் மேற்கு','KAMANERY - கமனேரி','KUMBIKULAM - கும்பிகுளம்','KOTTAYADI - கோட்டையடி','KEELKULAM - கீழ்குளம்','KANNANALOOR - கண்ணனலூர்','MAHIZHADY - மகிளடி','MELA NAMBITHOPPU - மேல நம்பிதோப்பு','NAMBITHOPPU - நம்பிதோப்பு','OOCHYKULAM - ஊச்சிக்குளம்','PANAKUDI - பணகுடி','PAPPANKULAM - பாப்பாங்குளம்','PERUMALANCHI - பெருமளஞ்சி','PRIYAMMALPURAM - ப்ரியம்மாள்புரம்','SYTHAMMALPURAM - சைதம்மாள்புரம்','THENKARAI - தென்கரை','THANGAYAM - தங்கயம்','VALLIOOR CENTRAL HALL - வள்ளியூர் சென்ட்ரல் ஹால்','VAGAIKULAM - வாகைக்குளம்'],
+  'THIRUPPUR':['VOILVAZHI - வோயில்வழி','PALLADAM - பல்லடம்','NALLOOR - நல்லூர்'],
+  'TANJAVOOR':['TANJAVOOR - தஞ்சாவூர்'],
+  'NILGRIS':['AGANADU - அகநாடு','KIL KOTHAGIRI - கீழ் கோத்தகிரி'],
+  'COIMBATORE':['COIMBATORE CENTRAL HALL - கோயம்புத்தூர் சென்ட்ரல் ஹால்','CHINNAYAMPALAYAM - சின்னயம்பாளையம்','METTUPALAYAM - மேட்டுப்பாளையம்','NANJUNDAPURAM - நஞ்சுண்டபுரம்'],
+  'NANJUNDAPURAM':['AMAYADI - ஆமையடி','AMBEDKAR NAGER - அம்பேத்கர் நகர்','AMBALAVANAPURAM - அம்பலவாணபுரம்','KUTTINAINARKULAM - குட்டிநாயனார்குளம்','KOTHANKULAM - கொத்தங்குளம்','KADUTHULA - காடுத்துல','KUMARAPURAM - குமாரபுரம்','KIZHAKULAM - கீழக்குளம்','KOODAMKULAM - கூடங்குளம்','MANICKAMPUTHOOR - மாணிக்கம்புத்தூர்','NAMBIKURICHY - நம்பிக்குறிச்சி','RATHAPURAM CENTRAL HALL - இராதபுரம் மத்திய மண்டபம்','PERUMKANNANKULAM - பெரும்கண்ணன்குளம்','PERUNKUDY - பெருங்குடி','PATTARKULAM - பட்டர்குளம்','S S PURAM - எஸ் எஸ் புரம்','SANGANERY - சங்கனேரி','SELVAMARUTHOOR - செல்வமருதூர்','V N KULAM - வி என் குளம்'],
+  'TENKASI':['ANDARKULAM - ஆண்டார்குளம்','ATTUVAZHY - அட்டுவாழி','IDAIKKAL - இடைக்கல்','E P PUTHOOR - E P புதூர்','KATTUPURAM - காட்டுபுரம்','KATTALAI KUDIYIRRUPPU - கட்டளை குடியிருப்பு','N K CHEVAL - என் கே செவல்','OPPANYALPURAM - ஒப்பனியால்புரம்','OPPANYALPURAM COLONY - ஒப்பனியால்புரம் காலனி','SAMBAVARVADAKARAI - சாம்பவர்வடகரை','THACHANKUDY - தச்சங்குடி','VADAMALAPURAM - வடமாலாபுரம்','VALLIYAMMALPURAM - வள்ளியம்மாள்புரம்','VADAKARAI - வடகரை'],
+  'RATHAPURAM':['AMAYADI - ஆமையடி','AMBEDKAR NAGER - அம்பேத்கர் நகர்','AMBALAVANAPURAM - அம்பலவாணபுரம்','KUTTINAINARKULAM - குட்டிநாயனார்குளம்','KOTHANKULAM - கொத்தங்குளம்','KADUTHULA - காடுத்துல','KUMARAPURAM - குமாரபுரம்','KIZHAKULAM - கீழக்குளம்','KOODAMKULAM - கூடங்குளம்','MANICKAMPUTHOOR - மாணிக்கம்புத்தூர்','NAMBIKURICHY - நம்பிக்குறிச்சி','RATHAPURAM CENTRAL HALL - இராதபுரம் மத்திய மண்டபம்','PERUMKANNANKULAM - பெரும்கண்ணன்குளம்','PERUNKUDY - பெருங்குடி','PATTARKULAM - பட்டர்குளம்','S S PURAM - எஸ் எஸ் புரம்','SANGANERY - சங்கனேரி','SELVAMARUTHOOR - செல்வமருதூர்','V N KULAM - வி என் குளம்'],
+  'TUTICORIN':['CHOTTAYANTHOPPU - சோட்டையாந்தோப்பு','KOVILPATTY - கோவில்பட்டி','KOMBANKULAM - கொம்பங்குளம்','SATHANKULAM - சாத்தான்குளம்','TUTICORIN CENTRAL HALL - தூத்துக்குடி சென்ட்ரல் ஹால்','THIMMARAJAPURAM - திம்மராஜபுரம்','THIRUCHENDUR - திருச்செந்தூர்'],
+  'MADURAI':['DINDUKKAL - திண்டுக்கல்','KODANKIPATTI - கோடாங்கிப்பட்டி','MADURAI CENTRAL HALL - மதுரை சென்ட்ரல் ஹால்','MANUPUTHUPATTI - மனுபுத்துப்பட்டி','POKKAMPATTY - பொக்கம்பட்டி','RETRAPATTY - ரெட்ராபட்டி','ROSALPATTI - ரோசல்பட்டி','VARIYOOR - வரியூர்'],
+  'TRICHY':['AIRPORT - விமான நிலையம்','E P PUTHUR - இ பி புதூர்','TRICHY CENTRAL HALL - திருச்சி சென்ட்ரல் ஹால்','KARUR - கரூர்','PAVITHRAM - பவித்திரம்','THOOVAKUDY - தூவக்குடி'],
+  'ERODE':['BANGALAW PUTHOOTHOOR - பங்களா தூத்தூர்','BHARATHIYARNAGER - பாரதியார்நகர்','BHAVANI - பவானி','ERODE CENTRAL HALL - ஈரோடு சென்ட்ரல் ஹால்','INDRA NAGER - இந்திரா நகர்','MANKARADU - மங்கரடு'],
+  'SALEM':['A K PATTY - A K பட்டி','A N MANGALAM - A N மங்கலம்','MANCHAVADY - மஞ்சவடி','D P PALAYAM - D P பாளையம்','M P PALYAM - M P பாளையம்','RAMALINGAPURAM - ராமலிங்கபுரம்'],
+  'KATPADY':['KATPADY CENTRAL HALL - காட்பாடி சென்ட்ரல் ஹால்','KANAGATHUKARAI - கனகத்துகரை','PERIYA PALAMBAAKAM - பெரிய பாலம்பாக்கம்','AMBETHKAR NAGAR - அம்பேத்கர் நகர்'],
+  'PONDICHERRY':['JJ NAGER - ஜே.ஜே.நகர்','MUTHERAMPETT - முத்தாரம்பேட்டை','PONDICHERRY CENTRAL HALL - பாண்டிச்சேரி சென்ட்ரல் ஹால்','PIDARYPETT - பிடாரிப்பேட்டை','THAKKAKUTTAI - தக்கக்குட்டை','VELRAMPETT - வேல்ராம்பேட்டை']
+};
+
+function onDivisionChange(val){
+  const cf=document.getElementById('corpsField');
+  const cs=document.getElementById('corpsSelect');
+  const lbl=document.getElementById('corpsFieldLabel');
+  cs.value='';
+  const divKey=Object.keys(CORPS_DATA).find(k=>val.startsWith(k));
+  if(divKey){
+    cf.style.display='block';
+    lbl.textContent='('+val.split(' - ')[0].trim()+')';
+    cs.innerHTML='<option value="">Select Corps…</option>'+
+      CORPS_DATA[divKey].map(c=>'<option>'+c+'</option>').join('');
+  } else {
+    cf.style.display='none';
+    cs.innerHTML='<option value="">Select Corps…</option>';
+  }
+}
+function highlightActivity(){
+  document.querySelectorAll('.act-opt').forEach(lbl=>{
+    const checked=lbl.querySelector('input').checked;
+    lbl.style.borderColor=checked?'var(--accent)':'var(--border)';
+    lbl.style.background=checked?'rgba(240,98,42,.12)':'var(--surface2)';
+    lbl.style.color=checked?'var(--text)':'var(--text2)';
+    lbl.style.fontWeight=checked?'600':'400';
+  });
+}
+
+
+
+
+
+/* ── Drag & drop ── */
+const uz=document.getElementById('uZone');
+uz.addEventListener('dragover',e=>{e.preventDefault();uz.classList.add('over');});
+uz.addEventListener('dragleave',()=>uz.classList.remove('over'));
+uz.addEventListener('drop',e=>{
+  e.preventDefault();uz.classList.remove('over');
+  const f=e.dataTransfer.files[0];
+  if(f){document.getElementById('idFile').files=e.dataTransfer.files;handleFile({target:{files:[f]}});}
+});
+</script><!-- ══ VERIFY PAGE ══ -->
+<div id="verifyOverlay" style="display:none;position:fixed;inset:0;z-index:99999;background:#fff;font-family:'Outfit',sans-serif;overflow-y:auto">
+  <div style="max-width:420px;margin:2.5rem auto;padding:1.5rem">
+    <div style="text-align:center;margin-bottom:1.5rem">
+      <div style="font-size:2.5rem;margin-bottom:.5rem">✅</div>
+      <div style="font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;color:#333;font-weight:700">THE SALVATION ARMY – ISET</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#c0392b;margin:.25rem 0">COME &amp; SHINE Season 4</div>
+      <div style="font-size:.78rem;color:#555">Territorial Competition for Children and Youth 2026</div>
+    </div>
+    <div style="background:#f9f9f9;border:1.5px solid #ddd;border-radius:12px;padding:1.25rem 1.5rem">
+      <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#888;font-weight:700;margin-bottom:.9rem;text-align:center">Registration Details</div>
+      <div style="display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee"><span style="font-size:.82rem;color:#666">Name</span><span style="font-size:.9rem;font-weight:700;color:#1565c0" id="v-name">—</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee"><span style="font-size:.82rem;color:#666">Date of Birth</span><span style="font-size:.9rem;font-weight:700;color:#2e7d32" id="v-dob">—</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee"><span style="font-size:.82rem;color:#666">Competition</span><span style="font-size:.88rem;font-weight:600;color:#111" id="v-comp">—</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee"><span style="font-size:.82rem;color:#666">Division</span><span style="font-size:.85rem;font-weight:600;color:#111;text-align:right;max-width:55%" id="v-div">—</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee"><span style="font-size:.82rem;color:#666">Corps</span><span style="font-size:.85rem;font-weight:600;color:#111;text-align:right;max-width:55%" id="v-corps">—</span></div>
+      <div style="display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee"><span style="font-size:.82rem;color:#666">Parent / Guardian</span><span style="font-size:.9rem;font-weight:700;color:#e65100" id="v-parent">—</span></div>
+      <div style="margin-top:.85rem;text-align:center">
+        <div style="display:inline-block;background:#fce4ec;border:1.5px solid #f48fb1;border-radius:8px;padding:.4rem 1.2rem">
+          <span style="font-size:.65rem;color:#880e4f;font-weight:600;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px">Competition Date</span>
+          <span style="font-size:1rem;font-weight:700;color:#c62828" id="v-date">—</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:1.25rem;background:#e8f5e9;border:1.5px solid #a5d6a7;border-radius:10px;padding:.85rem 1.25rem;text-align:center">
+      <span style="font-size:.85rem;color:#1b5e20;font-weight:600">✅ Valid Registration</span>
+    </div>
+    <div style="text-align:center;margin-top:1.25rem">
+      <button onclick="window.location.href=window.location.pathname" style="background:#c0392b;color:#fff;border:none;border-radius:8px;padding:.65rem 1.5rem;font-size:.85rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">← Back to Registration</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Auto-show verify page if ?verify= param present
+(function(){
+  const params=new URLSearchParams(window.location.search);
+  const v=params.get('verify');
+  if(v){
+    try{
+      const d=JSON.parse(decodeURIComponent(escape(atob(v))));
+      document.getElementById('v-name').textContent=d.name||'—';
+      document.getElementById('v-dob').textContent=d.dob||'—';
+      document.getElementById('v-comp').textContent=d.competition||'—';
+      document.getElementById('v-div').textContent=d.division||'—';
+      document.getElementById('v-corps').textContent=d.corps||'—';
+      document.getElementById('v-parent').textContent=d.parent||'—';
+      document.getElementById('v-date').textContent=d.date||'—';
+      document.getElementById('verifyOverlay').style.display='block';
+    }catch(e){console.warn('Invalid verify param');}
+  }
+})();
+</script>
+<!-- ══ ADMIN BUTTON ══ -->
+<button onclick="openAdmin()" style="position:fixed;bottom:1.25rem;right:1.25rem;z-index:9000;background:#1a1a2e;color:#fff;border:1px solid #444;border-radius:20px;padding:.5rem 1.1rem;font-size:.78rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:.05em">🔐 Admin</button>
+
+<!-- ══ ADMIN LOGIN ══ -->
+<div id="adminLogin" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.7);align-items:center;justify-content:center;font-family:'Outfit',sans-serif">
+  <div style="background:#fff;border-radius:14px;padding:2rem 2.5rem;max-width:340px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <div style="font-size:2rem;margin-bottom:.5rem">🔐</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#111;margin-bottom:.25rem">Admin Access</div>
+    <div style="font-size:.78rem;color:#666;margin-bottom:1.25rem">Enter password to continue</div>
+    <input id="adminPwInput" type="password" placeholder="Password" style="width:100%;padding:.7rem 1rem;border:1.5px solid #ddd;border-radius:8px;font-size:.9rem;font-family:'Outfit',sans-serif;outline:none;margin-bottom:.75rem;box-sizing:border-box" onkeydown="if(event.key==='Enter')checkAdminPw()"/>
+    <div id="adminPwErr" style="display:none;color:#c0392b;font-size:.78rem;margin-bottom:.6rem">❌ Incorrect password</div>
+    <div style="display:flex;gap:.75rem;justify-content:center">
+      <button onclick="checkAdminPw()" style="background:#c0392b;color:#fff;border:none;border-radius:8px;padding:.6rem 1.4rem;font-size:.85rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">Login</button>
+      <button onclick="closeAdminLogin()" style="background:#f5f5f5;color:#333;border:1px solid #ddd;border-radius:8px;padding:.6rem 1.4rem;font-size:.85rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ADMIN PANEL ══ -->
+<div id="adminPanel" style="display:none;position:fixed;inset:0;z-index:10001;background:#f4f6f9;font-family:'Outfit',sans-serif;overflow-y:auto">
+  <div style="background:#1a1a2e;color:#fff;padding:1rem 1.5rem;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(0,0,0,.4)">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff">⚙️ Admin Dashboard</div>
+        <div style="font-size:.68rem;color:#aaa;margin-top:1px">COME &amp; SHINE Season 4 · The Salvation Army – ISET</div>
+      </div>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
+        <button onclick="loadAdminData()" style="background:#2d2d5e;color:#fff;border:1px solid #444;border-radius:8px;padding:.4rem .9rem;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">🔄 Refresh</button>
+        <button onclick="exportAdminCSV()" style="background:#2d2d5e;color:#fff;border:1px solid #444;border-radius:8px;padding:.4rem .9rem;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">⬇️ CSV</button>
+        <button onclick="closeAdmin()" style="background:#c0392b;color:#fff;border:none;border-radius:8px;padding:.4rem .9rem;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">✕ Close</button>
+      </div>
+    </div>
+    <!-- Tabs -->
+    <div style="display:flex;gap:0;margin-top:.85rem;border-bottom:1px solid rgba(255,255,255,.12)">
+      <button id="adm-tab-reg" onclick="switchAdminTab('reg')" style="background:rgba(255,255,255,.15);color:#fff;border:none;border-bottom:2px solid #fff;padding:.45rem 1.3rem;font-size:.82rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:.03em;border-radius:6px 6px 0 0">📋 Registrations</button>
+      <button id="adm-tab-report" onclick="switchAdminTab('report')" style="background:transparent;color:rgba(255,255,255,.6);border:none;border-bottom:2px solid transparent;padding:.45rem 1.3rem;font-size:.82rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:.03em;border-radius:6px 6px 0 0">📊 Report</button>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:1.5rem auto;padding:0 1rem 3rem">
+  <!-- ══ TAB: REGISTRATIONS ══ -->
+  <div id="adm-pane-reg">
+
+    <!-- ── BOX 1: Registration Details ── -->
+    <div style="background:#fff;border-radius:14px;box-shadow:0 1px 6px rgba(0,0,0,.1);margin-bottom:1.25rem;overflow:hidden">
+      <div style="background:#1a1a2e;padding:.85rem 1.25rem">
+        <div style="color:#fff;font-weight:700;font-size:.92rem;letter-spacing:.02em">📋 Registration Details</div>
+        <div style="color:#aaa;font-size:.7rem;margin-top:2px">Total registered candidates by competition</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:0">
+        <div style="padding:1rem 1.25rem;border-right:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#1a1a2e;line-height:1" id="adm-total">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:4px;font-weight:700">Total</div>
+        </div>
+        <div style="padding:1rem 1.25rem;border-right:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#f06292;line-height:1" id="adm-drawing1">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:4px;font-weight:700">Drawing 1</div>
+        </div>
+        <div style="padding:1rem 1.25rem;border-right:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#e91e63;line-height:1" id="adm-drawing2">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:4px;font-weight:700">Drawing 2</div>
+        </div>
+        <div style="padding:1rem 1.25rem;border-right:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#ff9800;line-height:1" id="adm-story">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:4px;font-weight:700">Story Telling</div>
+        </div>
+        <div style="padding:1rem 1.25rem;border-right:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#2e7d32;line-height:1" id="adm-singing">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:4px;font-weight:700">Singing</div>
+        </div>
+        <div style="padding:1rem 1.25rem;border-bottom:1px solid #f0f0f0;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#e65100;line-height:1" id="adm-speech">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:4px;font-weight:700">Speech</div>
+        </div>
+        <div style="padding:1rem 1.25rem;border-bottom:1px solid #f0f0f0;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#6a1b9a;line-height:1" id="adm-biblequiz">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:4px;font-weight:700">Bible Quiz</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Division filter + search -->
+    <div style="display:flex;gap:.65rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center">
+      <input id="adm-search" type="text" placeholder="🔍 Search name…" oninput="applyAdminFilters()" style="padding:.5rem .9rem;border:1px solid #ddd;border-radius:8px;font-size:.82rem;font-family:'Outfit',sans-serif;outline:none;min-width:180px"/>
+      <select id="adm-fcomp" onchange="applyAdminFilters()" style="padding:.5rem .9rem;border:1px solid #ddd;border-radius:8px;font-size:.82rem;font-family:'Outfit',sans-serif;outline:none">
+        <option value="">All Competitions</option>
+        <option>Drawing 1</option><option>Drawing 2</option>
+        <option>Story Telling</option><option>Singing</option><option>Speech</option>
+        <option>Bible Quiz</option>
+      </select>
+      <select id="adm-fdiv" onchange="applyAdminFilters()" style="padding:.5rem .9rem;border:1px solid #ddd;border-radius:8px;font-size:.82rem;font-family:'Outfit',sans-serif;outline:none">
+        <option value="">All Divisions</option>
+      </select>
+      <select id="adm-fstatus" onchange="applyAdminFilters()" style="padding:.5rem .9rem;border:1px solid #ddd;border-radius:8px;font-size:.82rem;font-family:'Outfit',sans-serif;outline:none">
+        <option value="">All Status</option>
+        <option value="arrived">✅ Arrived</option>
+        <option value="pending">⏳ Not Yet</option>
+      </select>
+    </div>
+
+    <!-- Main Registrations Table -->
+    <div style="overflow-x:auto;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.1)">
+      <table style="width:100%;border-collapse:collapse;background:#fff;font-size:.82rem">
+        <thead>
+          <tr style="background:#1a1a2e;color:#fff">
+            <th style="padding:.7rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em">#</th>
+            <th style="padding:.7rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em">Name</th>
+            <th style="padding:.7rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em">DOB</th>
+            <th style="padding:.7rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em">Competition</th>
+            <th style="padding:.7rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em">Division</th>
+            <th style="padding:.7rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em">Corps</th>
+            <th style="padding:.7rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em">Parent</th>
+            <th style="padding:.7rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em">Phone</th>
+            <th style="padding:.7rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em">Timeline</th>
+          </tr>
+        </thead>
+        <tbody id="adm-tbody"><tr><td colspan="9" style="text-align:center;padding:2rem;color:#888">Click Refresh to load data</td></tr></tbody>
+      </table>
+    </div>
+    <div style="font-size:.75rem;color:#888;margin-top:.65rem;text-align:right" id="adm-count"></div>
+
+  </div><!-- /adm-pane-reg -->
+
+  <!-- ══ TAB: REPORT ══ -->
+  <div id="adm-pane-report" style="display:none">
+
+    <!-- Summary Header -->
+    <div style="background:#fff;border-radius:14px;box-shadow:0 1px 6px rgba(0,0,0,.1);margin-bottom:1.25rem;overflow:hidden">
+      <div style="background:linear-gradient(135deg,#1a1a2e,#2d2d5e);padding:1.1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem">
+        <div>
+          <div style="color:#fff;font-weight:700;font-size:1rem;letter-spacing:.02em">📊 Registration Report</div>
+          <div style="color:#aaa;font-size:.7rem;margin-top:3px">COME &amp; SHINE Season 4 — Territorial Competition 2026</div>
+        </div>
+        <button onclick="printReport()" style="background:#f0622a;color:#fff;border:none;border-radius:8px;padding:.45rem 1.1rem;font-size:.78rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif">🖨️ Print Report</button>
+      </div>
+      <!-- KPI strip -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));border-top:1px solid #f0f0f0" id="rpt-kpi-strip">
+        <div style="padding:1.1rem 1.25rem;border-right:1px solid #f0f0f0;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;color:#1a1a2e;line-height:1" id="rpt-total">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:5px;font-weight:700">Total Registered</div>
+        </div>
+        <div style="padding:1.1rem 1.25rem;border-right:1px solid #f0f0f0;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;color:#2e7d32;line-height:1" id="rpt-arrived">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:5px;font-weight:700">Arrived</div>
+        </div>
+        <div style="padding:1.1rem 1.25rem;border-right:1px solid #f0f0f0;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;color:#e65100;line-height:1" id="rpt-absent">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:5px;font-weight:700">Absent</div>
+        </div>
+        <div style="padding:1.1rem 1.25rem;border-right:1px solid #f0f0f0;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;color:#1565c0;line-height:1" id="rpt-divisions">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:5px;font-weight:700">Divisions</div>
+        </div>
+        <div style="padding:1.1rem 1.25rem;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;color:#6a1b9a;line-height:1" id="rpt-corps">—</div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-top:5px;font-weight:700">Corps</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 1: Competition + Gender breakdown -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem">
+
+      <!-- Competition Breakdown -->
+      <div style="background:#fff;border-radius:14px;box-shadow:0 1px 6px rgba(0,0,0,.1);overflow:hidden">
+        <div style="background:#1a1a2e;padding:.75rem 1.25rem">
+          <div style="color:#fff;font-weight:700;font-size:.88rem">🏆 By Competition</div>
+        </div>
+        <div style="padding:1rem 1.25rem" id="rpt-comp-list"></div>
+        <div style="padding:.5rem 1.25rem 1rem">
+          <canvas id="rpt-comp-chart" height="180"></canvas>
+        </div>
+      </div>
+
+      <!-- Gender Breakdown -->
+      <div style="background:#fff;border-radius:14px;box-shadow:0 1px 6px rgba(0,0,0,.1);overflow:hidden">
+        <div style="background:#1a1a2e;padding:.75rem 1.25rem">
+          <div style="color:#fff;font-weight:700;font-size:.88rem">👥 By Gender</div>
+        </div>
+        <div style="padding:1.25rem" id="rpt-gender-list"></div>
+        <div style="padding:.5rem 1.25rem 1rem">
+          <canvas id="rpt-gender-chart" height="180"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Division Breakdown Table -->
+    <div style="background:#fff;border-radius:14px;box-shadow:0 1px 6px rgba(0,0,0,.1);margin-bottom:1.25rem;overflow:hidden">
+      <div style="background:#1a1a2e;padding:.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center">
+        <div style="color:#fff;font-weight:700;font-size:.88rem">🗺️ By Division</div>
+        <div style="color:#aaa;font-size:.7rem" id="rpt-div-subtitle"></div>
+      </div>
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:.82rem" id="rpt-div-table">
+          <thead>
+            <tr style="background:#f8f8fc">
+              <th style="padding:.65rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#555;border-bottom:1px solid #eee">Division</th>
+              <th style="padding:.65rem 1rem;text-align:center;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#555;border-bottom:1px solid #eee">Total</th>
+              <th style="padding:.65rem 1rem;text-align:center;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#f06292;border-bottom:1px solid #eee">Draw 1</th>
+              <th style="padding:.65rem 1rem;text-align:center;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#e91e63;border-bottom:1px solid #eee">Draw 2</th>
+              <th style="padding:.65rem 1rem;text-align:center;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#ff9800;border-bottom:1px solid #eee">Story</th>
+              <th style="padding:.65rem 1rem;text-align:center;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#2e7d32;border-bottom:1px solid #eee">Singing</th>
+              <th style="padding:.65rem 1rem;text-align:center;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#e65100;border-bottom:1px solid #eee">Speech</th>
+              <th style="padding:.65rem 1rem;text-align:center;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#6a1b9a;border-bottom:1px solid #eee">B. Quiz</th>
+              <th style="padding:.65rem 1rem;text-align:center;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#1565c0;border-bottom:1px solid #eee">Male</th>
+              <th style="padding:.65rem 1rem;text-align:center;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#c0392b;border-bottom:1px solid #eee">Female</th>
+            </tr>
+          </thead>
+          <tbody id="rpt-div-tbody"><tr><td colspan="10" style="text-align:center;padding:2rem;color:#aaa">Load data to view report</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Top Corps Table -->
+    <div style="background:#fff;border-radius:14px;box-shadow:0 1px 6px rgba(0,0,0,.1);overflow:hidden">
+      <div style="background:#1a1a2e;padding:.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center">
+        <div style="color:#fff;font-weight:700;font-size:.88rem">🏛️ Corps Participation</div>
+        <div style="color:#aaa;font-size:.7rem">Top 20 by registrations</div>
+      </div>
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:.82rem">
+          <thead>
+            <tr style="background:#f8f8fc">
+              <th style="padding:.6rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#555;border-bottom:1px solid #eee">#</th>
+              <th style="padding:.6rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#555;border-bottom:1px solid #eee">Corps</th>
+              <th style="padding:.6rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#555;border-bottom:1px solid #eee">Division</th>
+              <th style="padding:.6rem 1rem;text-align:center;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#555;border-bottom:1px solid #eee">Count</th>
+              <th style="padding:.6rem 1rem;text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#555;border-bottom:1px solid #eee">Breakdown</th>
+            </tr>
+          </thead>
+          <tbody id="rpt-corps-tbody"><tr><td colspan="5" style="text-align:center;padding:2rem;color:#aaa">Load data to view report</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /adm-pane-report -->
+
+  </div><!-- /max-width container -->
+</div><!-- /adminPanel -->
+
+<script>
+const ADMIN_PASSWORD='iset2026';
+let admAllRows=[];
+
+
+
+function openAdmin(){
+  document.getElementById('adminLogin').style.display='flex';
+  document.getElementById('adminPwInput').value='';
+  document.getElementById('adminPwErr').style.display='none';
+  setTimeout(()=>document.getElementById('adminPwInput').focus(),100);
+}
+function closeAdminLogin(){
+  document.getElementById('adminLogin').style.display='none';
+}
+function checkAdminPw(){
+  const pw=document.getElementById('adminPwInput').value;
+  if(pw===ADMIN_PASSWORD){
+    document.getElementById('adminLogin').style.display='none';
+    document.getElementById('adminPanel').style.display='block';
+    loadAdminData();
+  } else {
+    document.getElementById('adminPwErr').style.display='block';
+    document.getElementById('adminPwInput').value='';
+    document.getElementById('adminPwInput').focus();
+  }
+}
+function closeAdmin(){
+  document.getElementById('adminPanel').style.display='none';
+}
+
+
+
+
+async function loadAdminData(){
+  document.getElementById('adm-tbody').innerHTML='<tr><td colspan="9" style="text-align:center;padding:2rem;color:#888">⏳ Loading…</td></tr>';
+  // Load registrations and attendance in parallel
+  const [regRows, attRows] = await Promise.all([fetchAdminRows(), fetchAttendanceRows()]);
+  // Build arrived name set
+  const arrivedMap={};
+  attRows.forEach(a=>{
+    const n=(a[0]||'').toLowerCase().trim();
+    if(n) arrivedMap[n]={arrivedAt:a[4]||'',volunteer:a[5]||''};
+  });
+  // Merge
+  admAllRows=regRows.map(r=>{
+    const n=(r[1]||'').toLowerCase().trim();
+    const att=arrivedMap[n];
+    return r;
+  });
+  // Division filter
+  const divs=[...new Set(admAllRows.map(r=>r[6]||'').filter(Boolean))].sort();
+  const fdiv=document.getElementById('adm-fdiv');
+  fdiv.innerHTML='<option value="">All Divisions</option>'+divs.map(d=>`<option>${d}</option>`).join('');
+  applyAdminFilters();
+  // If report tab is open, refresh it
+  if(document.getElementById('adm-pane-report').style.display!=='none') renderReport();
+}
+
+function fetchAdminRows(){
+  return new Promise((resolve)=>{
+    const cb='_admCb'+Date.now();
+    const s=document.createElement('script');
+    const t=setTimeout(()=>{s.remove();delete window[cb];resolve([]);},8000);
+    window[cb]=function(res){clearTimeout(t);s.remove();delete window[cb];resolve(res.rows||[]);};
+    s.onerror=()=>{clearTimeout(t);s.remove();delete window[cb];resolve([]);};
+    s.src=APPS_SCRIPT_URL+'?action=getall&callback='+cb;
+    document.body.appendChild(s);
+  });
+}
+
+function fetchAttendanceRows(){
+  return new Promise((resolve)=>{
+    const cb='_attCb'+Date.now();
+    const s=document.createElement('script');
+    const t=setTimeout(()=>{s.remove();delete window[cb];resolve([]);},8000);
+    window[cb]=function(res){clearTimeout(t);s.remove();delete window[cb];resolve(res.rows||[]);};
+    s.onerror=()=>{clearTimeout(t);s.remove();delete window[cb];resolve([]);};
+    s.src=APPS_SCRIPT_URL+'?action=getattendance&callback='+cb;
+    document.body.appendChild(s);
+  });
+}
+
+function applyAdminFilters(){
+  const search=(document.getElementById('adm-search').value||'').toLowerCase();
+  const fcomp=document.getElementById('adm-fcomp').value;
+  const fdiv=document.getElementById('adm-fdiv').value;
+  const fstatus=(document.getElementById('adm-fstatus')||{}).value||'';
+  let rows=admAllRows.filter(r=>{
+    if(fcomp&&!(r[8]||'').toLowerCase().includes(fcomp.toLowerCase()))return false;
+    if(fdiv&&(r[6]||'')!==fdiv)return false;
+    const isArrived=(r[9]||'').toLowerCase()==='arrived';
+    if(fstatus==='arrived'&&!isArrived)return false;
+    if(fstatus==='pending'&&isArrived)return false;
+    if(search&&[r[1],r[2],r[8],r[6],r[7]].join(' ').toLowerCase().indexOf(search)<0)return false;
+    return true;
+  });
+  renderAdminTable(rows);
+  document.getElementById('adm-total').textContent=admAllRows.length;
+  document.getElementById('adm-drawing1').textContent=admAllRows.filter(r=>(r[8]||'').toLowerCase().includes('drawing 1')).length;
+  document.getElementById('adm-drawing2').textContent=admAllRows.filter(r=>(r[8]||'').toLowerCase().includes('drawing 2')).length;
+  document.getElementById('adm-singing').textContent=admAllRows.filter(r=>(r[8]||'').toLowerCase().includes('sing')).length;
+  document.getElementById('adm-speech').textContent=admAllRows.filter(r=>(r[8]||'').toLowerCase().includes('speech')).length;
+  document.getElementById('adm-story').textContent=admAllRows.filter(r=>(r[8]||'').toLowerCase().includes('stor')).length;
+  const bq=el=>el&&(el.toLowerCase().includes('bible')||el.toLowerCase().includes('quiz'));
+  document.getElementById('adm-biblequiz').textContent=admAllRows.filter(r=>bq(r[8]||'')).length;
+}
+
+
+// Format DD/MM/YYYY -> YYYY.MM.DD
+function fmtDOB(s){
+  if(!s||!s.includes('/'))return s||'—';
+  const p=s.split('/');
+  if(p.length!==3)return s;
+  return p[2]+'.'+p[1]+'.'+p[0];
+}
+// Format locale date string (e.g. "15 Jun 2026, 10:30 am") -> YYYY.MM.DD HH.MM
+const _months={jan:'01',feb:'02',mar:'03',apr:'04',may:'05',jun:'06',jul:'07',aug:'08',sep:'09',oct:'10',nov:'11',dec:'12'};
+function fmtTimeline(s){
+  if(!s)return '—';
+  // Try to parse "DD Mon YYYY, HH:MM am/pm" format from en-IN locale
+  const m=s.match(/(\d{1,2})\s+([A-Za-z]+)\s+(\d{4}),?\s+(\d{1,2}):(\d{2})\s*(am|pm)?/i);
+  if(m){
+    const dd=m[1].padStart(2,'0');
+    const mon=_months[(m[2]||'').toLowerCase().slice(0,3)]||'00';
+    const yyyy=m[3];
+    let hh=parseInt(m[4],10);
+    const mm=m[5];
+    const ap=(m[6]||'').toLowerCase();
+    if(ap==='pm'&&hh<12)hh+=12;
+    if(ap==='am'&&hh===12)hh=0;
+    return yyyy+'.'+mon+'.'+dd+' '+String(hh).padStart(2,'0')+'.'+mm;
+  }
+  return s;
+}
+function renderAdminTable(rows){
+  const tbody=document.getElementById('adm-tbody');
+  if(!rows.length){
+    tbody.innerHTML='<tr><td colspan="9" style="text-align:center;padding:2rem;color:#888">No records found.</td></tr>';
+    document.getElementById('adm-count').textContent='';
+    return;
+  }
+  const compColors={'drawing 1':'#f06292','drawing 2':'#e91e63','story':'#ff9800','sing':'#2e7d32','speech':'#e65100'};
+  tbody.innerHTML=rows.map((r,i)=>{
+    const comp=(r[8]||'').toLowerCase();
+    const ckey=Object.keys(compColors).find(k=>comp.includes(k))||'';
+    const cc=ckey?compColors[ckey]:'#888';
+    const badge=`<span style="background:${cc}22;color:${cc};font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap">${r[8]||'—'}</span>`;
+    return `<tr style="border-bottom:1px solid #f0f0f0;background:#fff">
+      <td style="padding:.55rem .85rem;color:#aaa;font-size:.75rem">${i+1}</td>
+      <td style="padding:.55rem .85rem;font-weight:600;color:#111">${r[1]||'—'}</td>
+      <td style="padding:.55rem .85rem;white-space:nowrap;color:#444;font-size:.78rem">${fmtDOB(r[2])}</td>
+      <td style="padding:.55rem .85rem">${badge}</td>
+      <td style="padding:.55rem .85rem;font-size:.75rem;color:#444">${r[6]||'—'}</td>
+      <td style="padding:.55rem .85rem;font-size:.75rem;color:#444">${r[7]||'—'}</td>
+      <td style="padding:.55rem .85rem;color:#444;font-size:.78rem">${r[4]||'—'}</td>
+      <td style="padding:.55rem .85rem;white-space:nowrap;color:#444;font-size:.78rem">${r[5]||'—'}</td>
+      <td style="padding:.55rem .85rem;font-size:.75rem;color:#888;white-space:nowrap">${fmtTimeline(r[10])}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('adm-count').textContent=`Showing ${rows.length} of ${admAllRows.length} records`;
+}
+
+function exportAdminCSV(){
+  if(!admAllRows.length){alert('No data to export.');return;}
+  const header='Name,Date of Birth,Gender,Competition,Parent/Guardian,Phone,Division,Corps,Registered At';
+  const csv=[header,...admAllRows.map(r=>[r[1],r[2],r[3],r[4],r[5],r[6],r[7],r[8],r[9]].map(c=>'"'+(c||'').replace(/"/g,'""')+'"').join(','))].join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download='ComeAndShine_'+new Date().toISOString().slice(0,10)+'.csv';
+  a.click();
+}
+
+/* ── Tab switching ── */
+function switchAdminTab(tab){
+  const isReg=tab==='reg';
+  document.getElementById('adm-pane-reg').style.display=isReg?'block':'none';
+  document.getElementById('adm-pane-report').style.display=isReg?'none':'block';
+  const tReg=document.getElementById('adm-tab-reg');
+  const tRpt=document.getElementById('adm-tab-report');
+  tReg.style.background=isReg?'rgba(255,255,255,.15)':'transparent';
+  tReg.style.color=isReg?'#fff':'rgba(255,255,255,.6)';
+  tReg.style.borderBottom=isReg?'2px solid #fff':'2px solid transparent';
+  tReg.style.fontWeight=isReg?'700':'600';
+  tRpt.style.background=!isReg?'rgba(255,255,255,.15)':'transparent';
+  tRpt.style.color=!isReg?'#fff':'rgba(255,255,255,.6)';
+  tRpt.style.borderBottom=!isReg?'2px solid #fff':'2px solid transparent';
+  tRpt.style.fontWeight=!isReg?'700':'600';
+  if(!isReg)renderReport();
+}
+
+/* ── Report rendering ── */
+let _rptChartsDrawn=false;
+function renderReport(){
+  const rows=admAllRows;
+  if(!rows.length){return;}
+
+  const total=rows.length;
+  const arrived=rows.filter(r=>(r[9]||'').toLowerCase()==='arrived').length;
+  const absent=total-arrived;
+  const divSet=new Set(rows.map(r=>r[6]||'').filter(Boolean));
+  const corpsSet=new Set(rows.map(r=>r[7]||'').filter(Boolean));
+
+  document.getElementById('rpt-total').textContent=total;
+  document.getElementById('rpt-arrived').textContent=arrived;
+  document.getElementById('rpt-absent').textContent=absent;
+  document.getElementById('rpt-divisions').textContent=divSet.size;
+  document.getElementById('rpt-corps').textContent=corpsSet.size;
+
+  // Competition breakdown
+  const COMPS=[
+    {key:'drawing 1',label:'Drawing 1',color:'#f06292'},
+    {key:'drawing 2',label:'Drawing 2',color:'#e91e63'},
+    {key:'story',label:'Story Telling',color:'#ff9800'},
+    {key:'sing',label:'Singing',color:'#2e7d32'},
+    {key:'speech',label:'Speech',color:'#e65100'},
+    {key:'bible',label:'Bible Quiz',color:'#6a1b9a'},
+  ];
+  const compCount=COMPS.map(c=>({...c,n:rows.filter(r=>(r[8]||'').toLowerCase().includes(c.key)).length}));
+  const compList=document.getElementById('rpt-comp-list');
+  compList.innerHTML=compCount.map(c=>`
+    <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.55rem">
+      <div style="width:10px;height:10px;border-radius:50%;background:${c.color};flex-shrink:0"></div>
+      <div style="flex:1;font-size:.82rem;color:#333;font-weight:600">${c.label}</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:${c.color};font-weight:700">${c.n}</div>
+      <div style="width:80px;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">
+        <div style="height:100%;background:${c.color};width:${total?Math.round(c.n/total*100):0}%;border-radius:3px"></div>
+      </div>
+      <div style="font-size:.72rem;color:#888;width:28px;text-align:right">${total?Math.round(c.n/total*100):0}%</div>
+    </div>`).join('');
+
+  // Gender breakdown
+  const genders=['Male','Female','Transgender','Not detected'];
+  const gColors={'Male':'#1565c0','Female':'#c0392b','Transgender':'#6a1b9a','Not detected':'#888'};
+  const gCount=genders.map(g=>({g,n:rows.filter(r=>(r[3]||'').toLowerCase()===g.toLowerCase()).length})).filter(x=>x.n>0);
+  document.getElementById('rpt-gender-list').innerHTML=gCount.map(x=>`
+    <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.55rem">
+      <div style="width:10px;height:10px;border-radius:50%;background:${gColors[x.g]||'#888'};flex-shrink:0"></div>
+      <div style="flex:1;font-size:.82rem;color:#333;font-weight:600">${x.g}</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:${gColors[x.g]||'#888'};font-weight:700">${x.n}</div>
+      <div style="width:80px;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">
+        <div style="height:100%;background:${gColors[x.g]||'#888'};width:${total?Math.round(x.n/total*100):0}%;border-radius:3px"></div>
+      </div>
+      <div style="font-size:.72rem;color:#888;width:28px;text-align:right">${total?Math.round(x.n/total*100):0}%</div>
+    </div>`).join('');
+
+  // Division table
+  const divs=[...divSet].sort();
+  document.getElementById('rpt-div-subtitle').textContent=divs.length+' divisions';
+  const divTbody=document.getElementById('rpt-div-tbody');
+  divTbody.innerHTML=divs.map((div,i)=>{
+    const dr=rows.filter(r=>(r[6]||'')===div);
+    const d1=dr.filter(r=>(r[8]||'').toLowerCase().includes('drawing 1')).length;
+    const d2=dr.filter(r=>(r[8]||'').toLowerCase().includes('drawing 2')).length;
+    const st=dr.filter(r=>(r[8]||'').toLowerCase().includes('stor')).length;
+    const sg=dr.filter(r=>(r[8]||'').toLowerCase().includes('sing')).length;
+    const sp=dr.filter(r=>(r[8]||'').toLowerCase().includes('speech')).length;
+    const bq=dr.filter(r=>(r[8]||'').toLowerCase().includes('bible')||(r[8]||'').toLowerCase().includes('quiz')).length;
+    const male=dr.filter(r=>(r[3]||'').toLowerCase()==='male').length;
+    const female=dr.filter(r=>(r[3]||'').toLowerCase()==='female').length;
+    const bg=i%2===0?'#fff':'#fafafa';
+    return `<tr style="background:${bg};border-bottom:1px solid #f0f0f0">
+      <td style="padding:.55rem 1rem;font-weight:600;color:#1a1a2e;font-size:.82rem">${div||'—'}</td>
+      <td style="padding:.55rem 1rem;text-align:center;font-weight:700;font-size:.88rem;color:#1a1a2e">${dr.length}</td>
+      <td style="padding:.55rem 1rem;text-align:center;color:#f06292;font-weight:600">${d1||'—'}</td>
+      <td style="padding:.55rem 1rem;text-align:center;color:#e91e63;font-weight:600">${d2||'—'}</td>
+      <td style="padding:.55rem 1rem;text-align:center;color:#ff9800;font-weight:600">${st||'—'}</td>
+      <td style="padding:.55rem 1rem;text-align:center;color:#2e7d32;font-weight:600">${sg||'—'}</td>
+      <td style="padding:.55rem 1rem;text-align:center;color:#e65100;font-weight:600">${sp||'—'}</td>
+      <td style="padding:.55rem 1rem;text-align:center;color:#6a1b9a;font-weight:600">${bq||'—'}</td>
+      <td style="padding:.55rem 1rem;text-align:center;color:#1565c0;font-weight:600">${male||'—'}</td>
+      <td style="padding:.55rem 1rem;text-align:center;color:#c0392b;font-weight:600">${female||'—'}</td>
+    </tr>`;
+  }).join('');
+
+  // Corps table (top 20)
+  const corpsMap={};
+  rows.forEach(r=>{
+    const c=r[7]||'—'; const d=r[6]||'—';
+    if(!corpsMap[c])corpsMap[c]={div:d,count:0,comps:{}};
+    corpsMap[c].count++;
+    const comp=(r[8]||'Unknown');
+    corpsMap[c].comps[comp]=(corpsMap[c].comps[comp]||0)+1;
+  });
+  const corpsArr=Object.entries(corpsMap).sort((a,b)=>b[1].count-a[1].count).slice(0,20);
+  const corpsMax=corpsArr[0]?corpsArr[0][1].count:1;
+  document.getElementById('rpt-corps-tbody').innerHTML=corpsArr.map(([name,info],i)=>{
+    const breakdown=Object.entries(info.comps).sort((a,b)=>b[1]-a[1]).map(([comp,n])=>`<span style="background:#f0f0f0;color:#555;font-size:.65rem;padding:1px 7px;border-radius:10px;white-space:nowrap">${comp} ×${n}</span>`).join(' ');
+    const barW=Math.round(info.count/corpsMax*100);
+    return `<tr style="background:${i%2===0?'#fff':'#fafafa'};border-bottom:1px solid #f0f0f0">
+      <td style="padding:.55rem 1rem;color:#aaa;font-size:.75rem;font-weight:700">${i+1}</td>
+      <td style="padding:.55rem 1rem;font-weight:600;color:#1a1a2e;font-size:.82rem">${name}</td>
+      <td style="padding:.55rem 1rem;font-size:.75rem;color:#555">${info.div}</td>
+      <td style="padding:.55rem 1rem;text-align:center">
+        <div style="display:flex;align-items:center;gap:.5rem;justify-content:center">
+          <div style="width:60px;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">
+            <div style="height:100%;background:#1a1a2e;width:${barW}%;border-radius:3px"></div>
+          </div>
+          <span style="font-weight:700;color:#1a1a2e;font-size:.88rem">${info.count}</span>
+        </div>
+      </td>
+      <td style="padding:.55rem 1rem;font-size:.72rem;display:flex;flex-wrap:wrap;gap:3px">${breakdown}</td>
+    </tr>`;
+  }).join('');
+
+  // Draw charts using Canvas (no external lib needed)
+  drawBarChart('rpt-comp-chart', compCount.map(c=>c.label), compCount.map(c=>c.n), compCount.map(c=>c.color));
+  drawPieChart('rpt-gender-chart', gCount.map(x=>x.g), gCount.map(x=>x.n), gCount.map(x=>gColors[x.g]||'#888'));
+}
+
+function drawBarChart(canvasId, labels, values, colors){
+  const canvas=document.getElementById(canvasId);
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.offsetWidth||canvas.parentElement.offsetWidth||400;
+  canvas.width=W; canvas.height=180;
+  ctx.clearRect(0,0,W,180);
+  const max=Math.max(...values,1);
+  const pad=10, barH=18, gap=8, labelW=90;
+  const barAreaW=W-labelW-pad*2-30;
+  values.forEach((v,i)=>{
+    const y=pad+i*(barH+gap);
+    // Label
+    ctx.fillStyle='#555'; ctx.font='600 11px Outfit,sans-serif';
+    ctx.textAlign='right'; ctx.textBaseline='middle';
+    const shortLabel=labels[i].length>12?labels[i].slice(0,12)+'…':labels[i];
+    ctx.fillText(shortLabel, labelW, y+barH/2);
+    // Bar bg
+    ctx.fillStyle='#f0f0f0';
+    ctx.beginPath(); ctx.roundRect(labelW+pad, y, barAreaW, barH, 4); ctx.fill();
+    // Bar fill
+    const bw=Math.round(v/max*barAreaW);
+    if(bw>0){
+      ctx.fillStyle=colors[i]||'#1a1a2e';
+      ctx.beginPath(); ctx.roundRect(labelW+pad, y, bw, barH, 4); ctx.fill();
+    }
+    // Value
+    ctx.fillStyle='#333'; ctx.font='700 11px Outfit,sans-serif';
+    ctx.textAlign='left'; ctx.textBaseline='middle';
+    ctx.fillText(v, labelW+pad+bw+5, y+barH/2);
+  });
+}
+
+function drawPieChart(canvasId, labels, values, colors){
+  const canvas=document.getElementById(canvasId);
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.offsetWidth||canvas.parentElement.offsetWidth||300;
+  canvas.width=W; canvas.height=180;
+  ctx.clearRect(0,0,W,180);
+  const total=values.reduce((a,b)=>a+b,0)||1;
+  const cx=90, cy=85, r=70;
+  let angle=-Math.PI/2;
+  values.forEach((v,i)=>{
+    const slice=v/total*2*Math.PI;
+    ctx.beginPath(); ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,r,angle,angle+slice);
+    ctx.closePath(); ctx.fillStyle=colors[i]||'#ccc'; ctx.fill();
+    angle+=slice;
+  });
+  // Donut hole
+  ctx.beginPath(); ctx.arc(cx,cy,r*0.52,0,2*Math.PI);
+  ctx.fillStyle='#fff'; ctx.fill();
+  // Centre text
+  ctx.fillStyle='#1a1a2e'; ctx.font='700 18px Playfair Display,serif';
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.fillText(total, cx, cy);
+  // Legend
+  const lx=180, ly=20;
+  labels.forEach((lbl,i)=>{
+    const y=ly+i*22;
+    ctx.fillStyle=colors[i]||'#ccc';
+    ctx.beginPath(); ctx.roundRect(lx, y, 12, 12, 3); ctx.fill();
+    ctx.fillStyle='#333'; ctx.font='600 11px Outfit,sans-serif';
+    ctx.textAlign='left'; ctx.textBaseline='middle';
+    ctx.fillText(lbl+' ('+values[i]+')', lx+16, y+6);
+  });
+}
+
+function printReport(){
+  switchAdminTab('report');
+  setTimeout(()=>window.print(),150);
+}
+</script>
+<!-- ══ VOLUNTEER BUTTON ══ -->
+<button onclick="openVolunteer()" style="position:fixed;bottom:1.25rem;left:1.25rem;z-index:9000;background:#1a3a1a;color:#fff;border:1px solid #2e7d32;border-radius:20px;padding:.5rem 1.1rem;font-size:.78rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:.05em">🥁 Tambourine Competition</button>
+
+
+
+<!-- ══ TAMBOURINE COMPETITION PANEL ══ -->
+<div id="volPanel" style="display:none;position:fixed;inset:0;z-index:10001;background:#0a0a0a;font-family:'Outfit',sans-serif;overflow-y:auto">
+
+  <!-- Header -->
+  <div style="background:linear-gradient(135deg,#1a1a2e,#2d1a4e);padding:1rem 1.5rem;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(0,0,0,.5)">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.65rem">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#fff;font-weight:700">🥁 Tambourine Competition</div>
+        <div style="font-size:.68rem;color:#aaa;margin-top:1px">COME &amp; SHINE Season 4 · Group Registration</div>
+      </div>
+      <button onclick="closeVolPanel()" style="background:#c0392b;color:#fff;border:none;border-radius:8px;padding:.4rem .9rem;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">✕ Close</button>
+    </div>
+
+  </div>
+
+  <div style="max-width:600px;margin:1.5rem auto;padding:0 1rem 4rem">
+
+    <!-- ── STEP 1: Group Info ── -->
+    <div id="tamb-step1">
+      <div style="background:linear-gradient(135deg,#1a1a2e,#1a2e1a);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.25rem;border:1px solid rgba(240,98,42,.25)">
+        <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:#f0622a;font-weight:700;margin-bottom:.6rem">Step 1 of 2 · Group Details</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.25rem">🥁 Enter Group Information</div>
+        <div style="font-size:.78rem;color:#aaa;margin-top:.3rem">Fill in the <strong style="color:#f0622a">Group Name</strong>, <strong style="color:#4a9ef0">Division</strong> and <strong style="color:#4caf50">Corps</strong> before scanning members' ID cards.</div>
+      </div>
+
+      <div style="background:#111;border:1px solid #2a2a2a;border-radius:14px;padding:1.5rem">
+        <!-- Group Name -->
+        <div style="margin-bottom:1.2rem">
+          <label style="display:flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;color:#f0622a;text-transform:uppercase;margin-bottom:.5rem">
+            <span style="display:inline-flex;width:18px;height:18px;background:#f0622a;border-radius:4px;align-items:center;justify-content:center;font-size:.7rem;color:#fff;font-weight:800">G</span>
+            Group Name <span style="color:#f05050">*</span>
+          </label>
+          <input id="tamb-group-name" type="text" placeholder="e.g. Harmony Bells"
+            style="width:100%;padding:.75rem 1rem;border:2px solid #333;border-radius:8px;font-family:'Outfit',sans-serif;font-size:.92rem;background:#1a1a1a;color:#fff;outline:none;box-sizing:border-box;transition:border-color .2s"
+            oninput="tambValidateStep1()"
+            onfocus="this.style.borderColor='#f0622a';this.style.boxShadow='0 0 0 3px rgba(240,98,42,.15)'"
+            onblur="this.style.borderColor='#333';this.style.boxShadow='none'"/>
+        </div>
+        <!-- Division -->
+        <div style="margin-bottom:1.1rem">
+          <label style="display:block;font-size:.68rem;font-weight:700;letter-spacing:.08em;color:#aaa;text-transform:uppercase;margin-bottom:.45rem">Division *</label>
+          <select id="tamb-division" onchange="tambOnDivChange()" style="width:100%;padding:.7rem 1rem;border:1.5px solid #333;border-radius:8px;font-family:'Outfit',sans-serif;font-size:.88rem;background:#1a1a1a;color:#fff;outline:none;appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 1rem center">
+            <option value="">Select Division…</option>
+          </select>
+        </div>
+        <!-- Corps -->
+        <div id="tamb-corps-field" style="margin-bottom:1.25rem;display:none">
+          <label id="tamb-corps-label" style="display:block;font-size:.68rem;font-weight:700;letter-spacing:.08em;color:#aaa;text-transform:uppercase;margin-bottom:.45rem">Corps *</label>
+          <select id="tamb-corps" onchange="tambValidateStep1()" style="width:100%;padding:.7rem 1rem;border:1.5px solid #333;border-radius:8px;font-family:'Outfit',sans-serif;font-size:.88rem;background:#1a1a1a;color:#fff;outline:none;appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 1rem center">
+            <option value="">Select Corps…</option>
+          </select>
+        </div>
+
+        <div id="tamb-step1-err" style="display:none;background:rgba(240,80,80,.1);border:1px solid rgba(240,80,80,.3);color:#f05050;font-size:.82rem;border-radius:8px;padding:.65rem 1rem;margin-bottom:.9rem"></div>
+
+        <button id="tamb-next-btn" onclick="tambGoStep2()" disabled style="width:100%;background:#f0622a;color:#fff;border:none;border-radius:8px;padding:.75rem;font-size:.92rem;font-weight:700;cursor:not-allowed;font-family:'Outfit',sans-serif;opacity:.4;transition:all .2s">
+          Continue to Member ID Scan →
+        </button>
+      </div>
+    </div>
+
+    <!-- ── STEP 2: Member ID Scanning ── -->
+    <div id="tamb-step2" style="display:none">
+
+      <!-- Group info summary bar -->
+      <div style="background:#1a1a2e;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem">
+        <div>
+          <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#f0622a;font-weight:700">Group</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;color:#fff;font-weight:700" id="tamb-summary-group">—</div>
+          <div style="font-size:.72rem;color:#aaa;margin-top:2px" id="tamb-summary-div-corps">—</div>
+        </div>
+        <button onclick="tambBackToStep1()" style="background:transparent;color:#aaa;border:1px solid #333;border-radius:8px;padding:.35rem .85rem;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">✏️ Edit</button>
+      </div>
+
+      <!-- Member count indicator -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+        <div style="color:#fff;font-size:.88rem;font-weight:700">👥 Members <span id="tamb-member-count" style="color:#f0622a">0</span> / 7</div>
+        <div style="font-size:.75rem;color:#888">Scan ID card for each member</div>
+      </div>
+
+      <!-- Member slots (1–7) -->
+      <div id="tamb-members-container"></div>
+
+      <!-- Add member button -->
+      <button id="tamb-add-btn" onclick="tambAddMemberSlot()" style="width:100%;background:#111;color:#f0622a;border:2px dashed #333;border-radius:12px;padding:.85rem;font-size:.88rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;margin-top:.75rem;display:flex;align-items:center;justify-content:center;gap:.5rem">
+        ＋ Add Member (ID Scan)
+      </button>
+
+      <!-- Submit error -->
+      <div id="tamb-submit-err" style="display:none;background:rgba(240,80,80,.1);border:1px solid rgba(240,80,80,.3);color:#f05050;font-size:.82rem;border-radius:8px;padding:.65rem 1rem;margin-top:1rem"></div>
+
+      <!-- Submit button -->
+      <button id="tamb-submit-btn" onclick="tambSubmitGroup()" style="width:100%;background:#f0622a;color:#fff;border:none;border-radius:10px;padding:.85rem;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;margin-top:1.25rem;display:none">
+        ✅ Submit Group Registration
+      </button>
+
+      <!-- Success state -->
+      <div id="tamb-success" style="display:none;background:#0d2e0d;border:1.5px solid #2e7d32;border-radius:14px;padding:1.5rem;text-align:center;margin-top:1.25rem">
+        <div style="font-size:2.5rem;margin-bottom:.5rem">🎉</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:#4caf50;font-weight:700;margin-bottom:.35rem">Group Registered!</div>
+        <div style="font-size:.82rem;color:#aaa;margin-bottom:1rem" id="tamb-success-msg"></div>
+        <button onclick="tambReset()" style="background:#2e7d32;color:#fff;border:none;border-radius:8px;padding:.6rem 1.5rem;font-size:.85rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif">🥁 Register Another Group</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+let volStream=null;
+let volScanning=false;
+let volLog=[];
+let volScanInterval=null;
+let currentVolunteer='';
+
+/* ── Tambourine state ── */
+let tambMembers=[];   // [{name,dob,gender,scanning,err}]
+let tambActiveSlot=-1;
+
+function openVolunteer(){
+  tambInit();
+  document.getElementById('volPanel').style.display='block';
+}
+function tambSetVolName(val){
+  currentVolunteer=val.trim()||'Volunteer';
+  const el=document.getElementById('vol-volunteer-name');
+  if(el)el.textContent=currentVolunteer?'👤 '+currentVolunteer:'';
+}
+
+function closeVolPanel(){
+  tambStopAllCameras();
+  document.getElementById('volPanel').style.display='none';
+}
+
+/* ── Init Tambourine panel ── */
+function tambInit(){
+  tambMembers=[];
+  tambActiveSlot=-1;
+  document.getElementById('tamb-step1').style.display='block';
+  document.getElementById('tamb-step2').style.display='none';
+  document.getElementById('tamb-group-name').value='';
+  document.getElementById('tamb-step1-err').style.display='none';
+  document.getElementById('tamb-success').style.display='none';
+  document.getElementById('tamb-submit-btn').style.display='none';
+  document.getElementById('tamb-submit-err').style.display='none';
+  document.getElementById('tamb-members-container').innerHTML='';
+  document.getElementById('tamb-add-btn').style.display='flex';
+  // Populate division dropdown – use same full list as main registration form
+  const divSel=document.getElementById('tamb-division');
+  divSel.innerHTML='<option value="">Select Division…</option>';
+  const ALL_DIVISIONS=[
+    'MARTHANDAM - மார்த்தாண்டம்','THUCKALAY - தக்கலை','KULASEKARAM - குலசேகரம்',
+    'NAGERCOIL - நாகர்கோயில்','AZHAGIAPANDIAPURAM - அழகியபாண்டியபுரம்','KANYAKUMARI - கன்னியாகுமரி',
+    'INSTITUTION','ARALVAIMOZHI - ஆரல்வாய்மொழி','VALLIOOR - வள்ளியூர்','RATHAPURAM - இராதபுரம்',
+    'TENKASI - தென்காசி','PALAYAMKOTTAI - பாளையங்கோட்டை','TUTICORIN - தூத்துக்குடி',
+    'MADURAI - மதுரை','TRICHY - திருச்சி','COIMBATORE - கோயம்புத்தூர்','KATPADY - காட்பாடி',
+    'PONDICHERRY - பாண்டிச்சேரி','SALEM - சேலம்','NILGRIS - நீலகிரி','ERODE - ஈரோடு',
+    'TANJAVOOR - தஞ்சாவூர்','THIRUPPUR - திருப்பூர்'
+  ];
+  ALL_DIVISIONS.forEach(d=>{
+    const o=document.createElement('option');o.value=d;o.textContent=d;divSel.appendChild(o);
+  });
+  // Also add divisions from CORPS_DATA keys
+  document.getElementById('tamb-corps-field').style.display='none';
+  document.getElementById('tamb-corps').innerHTML='<option value="">Select Corps…</option>';
+  tambValidateStep1();
+  updateTambMemberCount();
+}
+
+function tambReset(){
+  tambInit();
+}
+
+function tambOnDivChange(){
+  const divSel=document.getElementById('tamb-division');
+  const val=divSel.value;
+  const cf=document.getElementById('tamb-corps-field');
+  const cs=document.getElementById('tamb-corps');
+  const lbl=document.getElementById('tamb-corps-label');
+  cs.value='';
+  // Match full division name to CORPS_DATA key (e.g. 'MARTHANDAM - மார்...' → 'MARTHANDAM')
+  const divKey=Object.keys(CORPS_DATA).find(k=>val===k||val===k||val.toUpperCase().startsWith(k.toUpperCase()));
+  if(divKey&&CORPS_DATA[divKey]){
+    cf.style.display='block';
+    lbl.innerHTML='<span style="display:inline-flex;width:18px;height:18px;background:#4caf50;border-radius:4px;align-items:center;justify-content:center;font-size:.7rem;color:#fff;font-weight:800">C</span> Corps <em style="font-size:.65rem;color:#888;font-style:normal">('+val+')</em> <span style="color:#f05050">*</span>';
+    cs.innerHTML='<option value="">Select Corps…</option>'+CORPS_DATA[divKey].map(c=>'<option>'+c+'</option>').join('');
+  } else {
+    cf.style.display='none';
+    cs.innerHTML='<option value="">Select Corps…</option>';
+  }
+  tambValidateStep1();
+}
+
+function tambValidateStep1(){
+  const gn=(document.getElementById('tamb-group-name').value||'').trim();
+  const dv=document.getElementById('tamb-division').value;
+  const cf=document.getElementById('tamb-corps-field');
+  const corpNeeded=cf.style.display==='block';
+  const cv=document.getElementById('tamb-corps').value;
+  const ok=gn.length>0&&dv.length>0&&(!corpNeeded||cv.length>0);
+  const btn=document.getElementById('tamb-next-btn');
+  btn.disabled=!ok;
+  btn.style.opacity=ok?'1':'0.4';
+  btn.style.cursor=ok?'pointer':'not-allowed';
+}
+
+function tambGoStep2(){
+  const gn=(document.getElementById('tamb-group-name').value||'').trim();
+  const dv=document.getElementById('tamb-division').value;
+  const cv=document.getElementById('tamb-corps').value||dv;
+  if(!gn||!dv){
+    const e=document.getElementById('tamb-step1-err');
+    e.textContent='Please fill all required fields.';e.style.display='block';return;
+  }
+  document.getElementById('tamb-step1').style.display='none';
+  document.getElementById('tamb-step2').style.display='block';
+  document.getElementById('tamb-summary-group').textContent=gn;
+  document.getElementById('tamb-summary-div-corps').textContent=dv+(cv&&cv!==dv?' · '+cv:'');
+}
+
+function tambBackToStep1(){
+  tambStopAllCameras();
+  document.getElementById('tamb-step1').style.display='block';
+  document.getElementById('tamb-step2').style.display='none';
+}
+
+/* ── Member slot management ── */
+function updateTambMemberCount(){
+  document.getElementById('tamb-member-count').textContent=tambMembers.length;
+  const addBtn=document.getElementById('tamb-add-btn');
+  if(addBtn)addBtn.style.display=tambMembers.length>=7?'none':'flex';
+  // Show submit button if at least 1 complete member
+  const hasAny=tambMembers.some(m=>m.name&&m.name!=='Not detected');
+  const submitBtn=document.getElementById('tamb-submit-btn');
+  if(submitBtn)submitBtn.style.display=hasAny?'block':'none';
+}
+
+function tambAddMemberSlot(){
+  if(tambMembers.length>=7)return;
+  const idx=tambMembers.length;
+  tambMembers.push({name:'',dob:'',gender:'',scanning:false,err:'',done:false,photoB64:'',photoMime:''});
+  renderTambSlot(idx);
+  updateTambMemberCount();
+  // Auto-trigger scan for this slot
+  setTimeout(()=>tambStartScan(idx),100);
+}
+
+function renderTambSlot(idx){
+  const m=tambMembers[idx];
+  const container=document.getElementById('tamb-members-container');
+  let el=document.getElementById('tamb-slot-'+idx);
+  if(!el){
+    el=document.createElement('div');
+    el.id='tamb-slot-'+idx;
+    container.appendChild(el);
+  }
+
+  const isDone=m.done&&m.name&&m.name!=='Not detected';
+  const isScanning=m.scanning;
+  const hasErr=m.err&&!isScanning;
+
+  el.innerHTML=`
+  <div style="background:#111;border:1.5px solid ${isDone?'#2e7d32':hasErr?'#f05050':'#222'};border-radius:14px;margin-bottom:.85rem;overflow:hidden">
+    <!-- Slot header -->
+    <div style="background:${isDone?'#0d2e0d':hasErr?'rgba(240,80,80,.1)':'#1a1a1a'};padding:.75rem 1.1rem;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:.65rem">
+        <div style="width:28px;height:28px;border-radius:50%;background:${isDone?'#2e7d32':hasErr?'#f05050':'#333'};display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;color:#fff;flex-shrink:0">${isDone?'✓':idx+1}</div>
+        <div>
+          <div style="font-size:.82rem;font-weight:700;color:${isDone?'#4caf50':hasErr?'#f05050':'#ccc'}">Member ${idx+1}</div>
+          ${isDone?`<div style="font-size:.72rem;color:#4caf50">${m.name}</div>`:''}
+        </div>
+      </div>
+      <div style="display:flex;gap:.45rem">
+        ${!isScanning&&!isDone?`<button onclick="tambStartScan(${idx})" style="background:#333;color:#fff;border:none;border-radius:6px;padding:.3rem .75rem;font-size:.72rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">📷 Scan ID</button>`:''}
+        ${isDone?`<button onclick="tambRescan(${idx})" style="background:#333;color:#ccc;border:none;border-radius:6px;padding:.3rem .75rem;font-size:.72rem;cursor:pointer;font-family:'Outfit',sans-serif">↺ Re-scan</button>`:''}
+        <button onclick="tambRemoveSlot(${idx})" style="background:rgba(240,80,80,.15);color:#f05050;border:none;border-radius:6px;padding:.3rem .75rem;font-size:.72rem;cursor:pointer;font-family:'Outfit',sans-serif">✕</button>
+      </div>
+    </div>
+
+    ${isScanning?`
+    <!-- Camera view -->
+    <div style="padding:.85rem;background:#0a0a0a">
+      <div style="position:relative;border-radius:10px;overflow:hidden;background:#000;margin-bottom:.65rem">
+        <video id="tamb-video-${idx}" style="width:100%;max-height:240px;display:block;object-fit:cover" autoplay playsinline muted></video>
+        <!-- Scan frame overlay -->
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+          <div style="width:200px;height:130px;border:2px solid #f0622a;border-radius:8px;box-shadow:0 0 0 2000px rgba(0,0,0,.35)"></div>
+        </div>
+      </div>
+      <canvas id="tamb-canvas-${idx}" style="display:none"></canvas>
+      <div id="tamb-scan-status-${idx}" style="text-align:center;font-size:.75rem;color:#888;margin-bottom:.55rem">📷 Scanning… point camera at ID card</div>
+
+      <!-- File upload fallback -->
+      <div style="position:relative;border:1px dashed #333;border-radius:8px;padding:.6rem;text-align:center;cursor:pointer;background:#111">
+        <input type="file" accept="image/*" onchange="tambHandleFileUpload(event,${idx})" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%"/>
+        <span style="font-size:.75rem;color:#666">📁 Or upload ID card image</span>
+      </div>
+      <button onclick="tambCancelScan(${idx})" style="width:100%;margin-top:.55rem;background:#222;color:#aaa;border:none;border-radius:8px;padding:.5rem;font-size:.78rem;cursor:pointer;font-family:'Outfit',sans-serif">Cancel</button>
+    </div>`:''}
+
+    ${isDone?`
+    <!-- Member details -->
+    <div style="padding:.85rem 1.1rem">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin-bottom:.85rem">
+        <div style="background:#1a1a1a;border-radius:8px;padding:.6rem .85rem;border-left:3px solid #f0622a">
+          <div style="font-size:.58rem;text-transform:uppercase;letter-spacing:.07em;color:#888;font-weight:700;margin-bottom:.3rem">📛 Name</div>
+          <div style="font-size:.82rem;font-weight:700;color:#fff;line-height:1.3">${m.name||'—'}</div>
+        </div>
+        <div style="background:#1a1a1a;border-radius:8px;padding:.6rem .85rem;border-left:3px solid #4caf50">
+          <div style="font-size:.58rem;text-transform:uppercase;letter-spacing:.07em;color:#888;font-weight:700;margin-bottom:.3rem">🎂 Date of Birth</div>
+          <div style="font-size:.82rem;font-weight:600;color:#4caf50">${m.dob||'—'}</div>
+        </div>
+        <div style="background:#1a1a1a;border-radius:8px;padding:.6rem .85rem;border-left:3px solid #4a9ef0">
+          <div style="font-size:.58rem;text-transform:uppercase;letter-spacing:.07em;color:#888;font-weight:700;margin-bottom:.3rem">⚧ Gender</div>
+          <div style="font-size:.82rem;font-weight:600;color:#4a9ef0">${m.gender||'—'}</div>
+        </div>
+      </div>
+      <!-- Photo upload for this member -->
+      <div style="background:#0d0d0d;border:1px solid #2a2a2a;border-radius:10px;padding:.75rem">
+        <div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:#f0622a;font-weight:700;margin-bottom:.5rem">📸 Member Photo</div>
+        <div style="display:flex;align-items:center;gap:.75rem">
+          <div id="tamb-photo-preview-wrap-${idx}" style="width:56px;height:56px;border-radius:50%;overflow:hidden;border:2px solid ${m.photoB64?'#f0622a':'#333'};background:#1a1a1a;flex-shrink:0;display:flex;align-items:center;justify-content:center">
+            ${m.photoB64
+              ?`<img src="data:${m.photoMime};base64,${m.photoB64}" style="width:100%;height:100%;object-fit:cover"/>`
+              :`<span style="font-size:1.4rem">👤</span>`}
+          </div>
+          <div style="flex:1">
+            <div style="position:relative;border:1px dashed ${m.photoB64?'#f0622a':'#444'};border-radius:8px;padding:.5rem .75rem;text-align:center;cursor:pointer;background:#111">
+              <input type="file" accept="image/*" onchange="tambHandleMemberPhoto(event,${idx})" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%"/>
+              <span style="font-size:.75rem;color:${m.photoB64?'#f0622a':'#666'}">${m.photoB64?'✅ Photo uploaded — tap to change':'📷 Upload member photo'}</span>
+            </div>
+            <div style="font-size:.62rem;color:#555;margin-top:.3rem">Face photo only. Will be saved with registration.</div>
+          </div>
+        </div>
+        ${m.photoErr?`<div style="font-size:.72rem;color:#f05050;margin-top:.4rem">${m.photoErr}</div>`:''}
+      </div>
+    </div>`:''}
+
+    ${hasErr&&!isScanning&&!isDone?`
+    <div style="padding:.75rem 1.1rem">
+      <div style="background:rgba(240,80,80,.08);border:1px solid rgba(240,80,80,.25);border-radius:8px;padding:.6rem .85rem;font-size:.78rem;color:#f05050;margin-bottom:.6rem">${m.err}</div>
+      <!-- File upload on error -->
+      <div style="position:relative;border:1px dashed #f05050;border-radius:8px;padding:.6rem;text-align:center;cursor:pointer;background:#111">
+        <input type="file" accept="image/*" onchange="tambHandleFileUpload(event,${idx})" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%"/>
+        <span style="font-size:.75rem;color:#f05050">📁 Upload ID card image instead</span>
+      </div>
+    </div>`:''}
+
+    ${!isScanning&&!isDone&&!hasErr?`
+    <!-- Empty state — show upload option too -->
+    <div style="padding:.75rem 1.1rem">
+      <div style="position:relative;border:1px dashed #333;border-radius:8px;padding:.65rem;text-align:center;cursor:pointer;background:#0a0a0a">
+        <input type="file" accept="image/*" onchange="tambHandleFileUpload(event,${idx})" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%"/>
+        <span style="font-size:.75rem;color:#555">📁 Or upload ID card image</span>
+      </div>
+    </div>`:''}
+
+  </div>`;
+
+  // If scanning, start camera after render
+  if(isScanning){
+    requestAnimationFrame(()=>tambStartCamera(idx));
+  }
+}
+
+function tambRemoveSlot(idx){
+  tambStopCamera(idx);
+  tambMembers.splice(idx,1);
+  // Re-render all slots with updated indices
+  document.getElementById('tamb-members-container').innerHTML='';
+  tambMembers.forEach((_,i)=>renderTambSlot(i));
+  updateTambMemberCount();
+}
+
+function tambRescan(idx){
+  tambMembers[idx]={...tambMembers[idx],name:'',dob:'',gender:'',scanning:true,err:'',done:false};
+  renderTambSlot(idx);
+}
+
+function tambCancelScan(idx){
+  tambStopCamera(idx);
+  tambMembers[idx].scanning=false;
+  if(!tambMembers[idx].name){
+    tambMembers[idx].err='Scan cancelled.';
+  }
+  renderTambSlot(idx);
+}
+
+/* ── Camera management ── */
+let tambStreams={};  // idx -> MediaStream
+let tambIntervals={}; // idx -> intervalId
+
+async function tambStartScan(idx){
+  tambMembers[idx].scanning=true;
+  tambMembers[idx].err='';
+  tambMembers[idx].done=false;
+  renderTambSlot(idx);
+}
+
+async function tambStartCamera(idx){
+  if(tambStreams[idx]){
+    try{tambStreams[idx].getTracks().forEach(t=>t.stop());}catch(_){}
+  }
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({
+      video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}},audio:false
+    });
+    tambStreams[idx]=stream;
+    const vid=document.getElementById('tamb-video-'+idx);
+    if(!vid){tambStreams[idx].getTracks().forEach(t=>t.stop());delete tambStreams[idx];return;}
+    vid.srcObject=stream;
+    await vid.play();
+
+    // Load jsQR if not loaded
+    if(!window.jsQR){
+      const s=document.createElement('script');
+      s.src='https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js';
+      document.head.appendChild(s);
+      await new Promise((res,rej)=>{s.onload=res;s.onerror=rej;});
+    }
+
+    const statusEl=document.getElementById('tamb-scan-status-'+idx);
+    if(statusEl)statusEl.textContent='🟢 Ready — point ID card at camera';
+
+    // Poll frames to detect ID (we use Groq vision, not QR for ID cards)
+    // We do a frame capture approach: capture frame every 2s and call Groq
+    let extracting=false;
+    tambIntervals[idx]=setInterval(async()=>{
+      if(extracting)return;
+      const vid2=document.getElementById('tamb-video-'+idx);
+      if(!vid2||vid2.readyState<vid2.HAVE_ENOUGH_DATA||vid2.videoWidth===0)return;
+      const cvs=document.getElementById('tamb-canvas-'+idx);
+      if(!cvs)return;
+      cvs.width=vid2.videoWidth; cvs.height=vid2.videoHeight;
+      const ctx=cvs.getContext('2d');
+      ctx.drawImage(vid2,0,0);
+      // Check brightness — skip very dark frames
+      const img=ctx.getImageData(0,0,Math.min(cvs.width,80),Math.min(cvs.height,80));
+      let brightness=0;
+      for(let p=0;p<img.data.length;p+=4)brightness+=img.data[p]+img.data[p+1]+img.data[p+2];
+      brightness/=(img.data.length/4*3);
+      if(brightness<30)return;
+      extracting=true;
+      if(statusEl)statusEl.textContent='🔍 Detecting ID card…';
+      const b64=cvs.toDataURL('image/jpeg',0.85).split(',')[1];
+      const ok=await tambExtractFromB64(b64,'image/jpeg',idx);
+      if(ok){clearInterval(tambIntervals[idx]);delete tambIntervals[idx];}
+      else{extracting=false;if(statusEl)statusEl.textContent='📷 Scanning… hold ID card steady';}
+    },2500);
+
+  }catch(e){
+    tambMembers[idx].scanning=false;
+    tambMembers[idx].err='Camera error: '+e.message+'. Please upload an image instead.';
+    renderTambSlot(idx);
+  }
+}
+
+function tambStopCamera(idx){
+  if(tambIntervals[idx]){clearInterval(tambIntervals[idx]);delete tambIntervals[idx];}
+  if(tambStreams[idx]){try{tambStreams[idx].getTracks().forEach(t=>t.stop());}catch(_){}delete tambStreams[idx];}
+}
+
+function tambStopAllCameras(){
+  Object.keys(tambStreams).forEach(idx=>tambStopCamera(Number(idx)));
+  Object.keys(tambIntervals).forEach(idx=>{clearInterval(tambIntervals[idx]);delete tambIntervals[idx];});
+}
+
+async function tambHandleFileUpload(e, idx){
+  const file=e.target.files[0];
+  if(!file)return;
+  if(file.size>10*1024*1024){
+    tambMembers[idx].err='File too large (max 10 MB).';tambMembers[idx].scanning=false;
+    renderTambSlot(idx);return;
+  }
+  tambStopCamera(idx);
+  tambMembers[idx].scanning=true;tambMembers[idx].err='';tambMembers[idx].done=false;
+  renderTambSlot(idx);
+  const reader=new FileReader();
+  reader.onload=async ev=>{
+    const b64=ev.target.result.split(',')[1];
+    const mime=file.type||'image/jpeg';
+    const statusEl=document.getElementById('tamb-scan-status-'+idx);
+    if(statusEl)statusEl.textContent='🔍 Reading ID card…';
+    const ok=await tambExtractFromB64(b64,mime,idx);
+    if(!ok){
+      tambMembers[idx].scanning=false;
+      tambMembers[idx].err='Could not read ID. Try a clearer, well-lit photo.';
+      renderTambSlot(idx);
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+async function tambExtractFromB64(b64, mime, idx){
+  try{
+    const res=await fetch('/api/scan',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'meta-llama/llama-4-scout-17b-16e-instruct',
+        max_tokens:300,
+        messages:[{role:'user',content:[
+          {type:'image',source:{type:'base64',media_type:mime,data:b64}},
+          {type:'text',text:`You are a precise OCR system for government ID documents.
+Examine this image. If it is a government-issued ID card (Aadhaar, Voter ID, Passport, Driving Licence, PAN, etc), extract:
+{"full_name":"complete name as printed","date_of_birth":"DD/MM/YYYY or null","gender":"Male/Female/Transgender or null","is_id":true}
+If this is NOT a clear ID card, return: {"is_id":false}
+Return ONLY the JSON object, no markdown, no explanation.
+IMPORTANT: date_of_birth must be DD/MM/YYYY with 2-digit day, 2-digit month, 4-digit year.`}
+        ]}]
+      })
+    });
+    if(!res.ok){console.error('Groq API error:',res.status);return false;}
+    const data=await res.json();
+    const txt=(data.choices&&data.choices[0]&&data.choices[0].message&&data.choices[0].message.content)||'';
+    let parsed;
+    try{parsed=extractJSON(txt);}catch(_){return false;}
+    if(!parsed||!parsed.is_id||!parsed.full_name)return false;
+    tambStopCamera(idx);
+    tambMembers[idx].scanning=false;
+    tambMembers[idx].name=formatNameInitialLast(parsed.full_name||'Not detected');
+    tambMembers[idx].dob=parsed.date_of_birth||'';
+    tambMembers[idx].gender=parsed.gender||'Not detected';
+    tambMembers[idx].err='';
+    tambMembers[idx].done=true;
+    renderTambSlot(idx);
+    updateTambMemberCount();
+    return true;
+  }catch(_){return false;}
+}
+
+/* ── Member photo handler ── */
+async function tambHandleMemberPhoto(e, idx){
+  const file=e.target.files[0];
+  if(!file)return;
+  if(file.size>5*1024*1024){
+    tambMembers[idx].photoErr='Photo too large (max 5 MB).';
+    renderTambSlot(idx);return;
+  }
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    const full=ev.target.result;
+    tambMembers[idx].photoB64=full.split(',')[1];
+    tambMembers[idx].photoMime=file.type||'image/jpeg';
+    tambMembers[idx].photoErr='';
+    renderTambSlot(idx);
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ── Submit group ── */
+function tambSubmitGroup(){
+  const members=tambMembers.filter(m=>m.done&&m.name&&m.name!=='Not detected');
+  if(!members.length){
+    const e=document.getElementById('tamb-submit-err');
+    e.textContent='Please scan at least one member\'s ID card.';e.style.display='block';return;
+  }
+  document.getElementById('tamb-submit-err').style.display='none';
+  const submitBtn=document.getElementById('tamb-submit-btn');
+  submitBtn.disabled=true;submitBtn.textContent='⏳ Submitting…';
+
+  const groupName=(document.getElementById('tamb-group-name').value||'').trim();
+  const division=document.getElementById('tamb-division').value;
+  const corps=document.getElementById('tamb-corps').value||division;
+  const now=new Date().toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'});
+
+  // Submit each member to sheet
+  let sent=0;
+  members.forEach(m=>{
+    const params=new URLSearchParams({
+      action:'save',
+      regId:'TC-'+Date.now()+'-'+Math.floor(Math.random()*9000+1000),
+      name:m.name||'',
+      dob:m.dob||'',
+      gender:m.gender||'',
+      parent:groupName,
+      phone:'',
+      division:division,
+      corps:corps,
+      competition:'Tambourine Competition',
+      status:'Registered',
+      registeredAt:now,
+      groupName:groupName,
+      photo:m.photoB64?('data:'+(m.photoMime||'image/jpeg')+';base64,'+m.photoB64):''
+    });
+    const cb='_tambSave'+Date.now()+sent;
+    const s=document.createElement('script');
+    window[cb]=function(r){s.remove();delete window[cb];};
+    s.onerror=()=>{s.remove();delete window[cb];};
+    s.src=APPS_SCRIPT_URL+'?'+params.toString()+'&callback='+cb;
+    document.body.appendChild(s);
+    sent++;
+  });
+
+  setTimeout(()=>{
+    submitBtn.disabled=false;submitBtn.textContent='✅ Submit Group Registration';
+    document.getElementById('tamb-submit-btn').style.display='none';
+    const succ=document.getElementById('tamb-success');
+    document.getElementById('tamb-success-msg').textContent=
+      groupName+' — '+members.length+' member'+(members.length>1?'s':'')+' registered successfully.';
+    succ.style.display='block';
+    succ.scrollIntoView({behavior:'smooth'});
+    // Add to vol log
+    members.forEach(m=>{
+      volLog.unshift({name:m.name,comp:'Tambourine Competition',division,corps,time:new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})});
+    });
+  },1500);
+}
+
+/* ── Legacy QR scanner stubs (keep for compatibility) ── */
+function startVolScan(){}
+function stopVolScan(){}
+function processQR(){}
+function confirmVolAttendance(){}
+function showVolConfirmed(){}
+function showVolResult(){}
+function resetVolScan(){}
+function updateVolLog(){}
+</script>
+
+</body>
+</html>
